@@ -1,0 +1,111 @@
+body
+{
+    height: 100vh;
+    background: #151519;
+}
+
+h1 
+{
+    color:white;
+    font-size: 5vh;
+}
+
+
+#left_div
+{
+    float: left;
+    height: 100%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#left_sub_div_active_board,
+#left_sub_div_passive_board
+{
+    flex: 0 0 auto;
+    height: 650px;
+    width: 650px;
+}
+
+#right_div
+{
+    float: left;
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#right_sub_div
+{
+    clear: both;
+    height: 650px;
+    width: 650px
+}
+
+#right_sub_div_options
+{
+    clear: both;
+    margin-bottom: 100px;
+    height: 50%;
+    width: 100%;
+}
+
+button,
+[type="enabled"]
+{
+    outline: none;
+    top: 50%;
+    left: 50%;
+    background: none;
+    color: #ccc;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #045bbe;
+    font-size: 15px;
+    transition: .6s;
+    margin-bottom: 2px;
+    overflow: hidden;
+}
+
+
+[type="selected"]
+{
+    border: 1px solid rgba(10, 165, 5, 0.933);
+}
+
+[type="options"]
+{
+    width: 10vw;
+}
+
+[type="ships"]
+{
+    width: 10vw;
+}
+
+
+button:hover:enabled
+{
+    background: #003d99;    
+    cursor: pointer;
+}
+
+button:hover::before:enabled
+{
+    transform: translateX(300px) skewX(-15deg);
+    opacity: 0.6;
+    transition: .7s;
+}
+
+button:hover::after:enabled
+{
+    transform: translateX(300px) skewX(-15deg);
+    opacity: .6s;
+    transition: .7s;
+}
