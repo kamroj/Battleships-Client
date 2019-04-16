@@ -1,4 +1,4 @@
-### ABOUT ``BattleShipsServer``
+### ABOUT ``BattleShipsClient``
 
 ### PREREQUISITES
 
