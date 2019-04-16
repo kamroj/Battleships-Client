@@ -1,71 +1,92 @@
-const ship = require('./ship-selector');
+const c = require('./ship-selector');
+const mark = require('./board-marks');
+const $ = require('jQuery');
 
-var $ = require('jQuery');
 const fieldsQuantity = 100;
-let chosenField = 0;
+let chosenFieldToFire = 0;
+let chosenFieldToPlaceShip = 0;
 
-let shipPlacer = ship.shipPlacerClass();
+let ship = c.shipPlacerClass();
 
 document.getElementById('button_generate').onclick = () => {
     createActiveBoard(fieldsQuantity);  
-    createPassiveBoard(fieldsQuantity);  
+    createPassiveBoard(fieldsQuantity);
+    reloadListenerToButtons(); 
 };
-
-document.getElementById('button_shoot').onclick = () => {
-    fire();
-};
-
-document.getElementById('button_place_ship').onclick = () => {
-    console.log(`Wysyłam:: Statek: ${ship.getSize()} masztowy, 
-    pole: ${chosenField}, wertkalnie: ${ship.isVertical()}`)
-
-    shipPlacer.fieldNumber = chosenField;
-    let shipJson = JSON.stringify(shipPlacer, null, 4);
-    //postShipJson(shipJson);
-    console.log(`${shipJson}`)
-}
 
 function createActiveBoard(fieldsQuantity) {
 
     //Generowanie przyciskow
     for(i = 1; i <= fieldsQuantity; i++) {
         let button = document.createElement("button");
-        let buttonDiv = document.getElementById("left_sub_div_active_board");
+        let buttonDiv = document.getElementById("sub_div_active_board");
         
         button.innerHTML = i;
+        button.id = i * 10; //nie moge powtarzać id dlatego taki hack
         button.className = `fields`;
         
         buttonDiv.appendChild(button);
     }
-    reloadListenerToButtons();
 }
 
 function createPassiveBoard(fieldsQuantity) {
     for(i = 1; i <= fieldsQuantity; i++) {
         let button = document.createElement("button");
-        let buttonDiv = document.getElementById("left_sub_div_passive_board");
+        let buttonDiv = document.getElementById("sub_div_passive_board");
         
+        button.id = i;
         button.className = `fieldsPassive`;
         
         buttonDiv.appendChild(button);
-        button.disabled = true;
     }
 }
 
 function reloadListenerToButtons() {
     //Generowanie listenerów do buttonów
     $('.fields').click(function() {
-        chosenField = this.innerHTML;
+        chosenFieldToFire = this.innerHTML;
         $(this).prop('type', 'selected');
             $('.fields')
                 .not(this)
                 .prop('type', 'enabled');
     });
+
+    $('.fieldsPassive').click(function() {
+        chosenFieldToPlaceShip = this.id;
+        $(this).prop('type', 'selected');
+            $('.fieldsPassive')
+                .not(this)
+                .prop('type', 'enabled');
+    });
 }
 
+document.getElementById('button_shoot').onclick = () => {
+    fire();
+};
+
 function fire() {
-    console.log(`FIRE :: ${chosenField} PACH PACH`);
+    mark.fire(chosenFieldToFire, false);
+    console.log(`FIRE :: ${chosenFieldToFire} PACH PACH`);
 }
+
+
+document.getElementById('button_place_ship').onclick = () => {
+    placeShip();
+}
+
+function placeShip() {
+    console.log(`Wysyłam:: Statek: ${ship.lenght} masztowy, 
+    pole: ${chosenFieldToPlaceShip}, wertkalnie: ${ship.isVertical}`)
+
+    ship.fieldNumber = chosenFieldToPlaceShip;
+    let shipJson = JSON.stringify(ship, null, 4);
+    //postShipJson(shipJson);
+    console.log(`${shipJson}`)
+
+    mark.ship(chosenFieldToPlaceShip, ship.lenght);
+}
+
+
 
 
 // function postShipJson(json) {

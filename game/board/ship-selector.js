@@ -13,14 +13,13 @@ class ShipPlacer {
 let shipPlacer = new ShipPlacer();
 
 document.getElementById('button_ship_4_mast').onclick = () => {
-    shipSise = 4;
     shipPlacer.lenght = 4;
-    console.log(`Ship selected:: ${shipSise} masts`);
+    console.log(`Ship selected:: ${shipPlacer.lenght} masts`);
 }
 
 document.getElementById('button_ship_3_mast').onclick = () => {
-    shipSise = 3;
-    console.log(`Ship selected:: ${shipSise} masts`);
+    shipPlacer.lenght =  3;
+    console.log(`Ship selected:: ${shipPlacer.lenght} masts`);
 }
 
 document.getElementById('button_ship_vertical').onclick = () => {
@@ -30,14 +29,6 @@ document.getElementById('button_ship_vertical').onclick = () => {
 }
 
 module.exports = {
-    getSize: () => {
-        return shipSise;
-    },
-
-    isVertical: () => {
-        return vertical;
-    },
-
     shipPlacerClass: () => {
         return shipPlacer
     }

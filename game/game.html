@@ -10,22 +10,20 @@
 
   <body>
     <!-- <div class="main_div"> -->
-    <div id="left_div">
-      <div id="left_sub_div_active_board"></div>
-      <div id="left_sub_div_passive_board"></div>
-    </div>
-    <div id="right_div">
-      <div id="right_sub_div">
-        <div id="right_sub_div_options">
-          <button type="options" id="button_generate">Generuj buttony</button>
-          <button type="options" id="button_shoot">Strzel</button>
-          <button type="options" id="button_place_ship">Postaw statek</button>
-        </div>
-        <div id="right_sub_div_options">
-          <button type="ships" id="button_ship_4_mast">4-ro masztowy</button>
-          <button type="ships" id="button_ship_3_mast">3-ro masztowy</button>
-          <button type="ships" id="button_ship_vertical">wertykalnie</button>
-        </div>
+    <div id="main_div">
+      <div id="sub_div_active_board"></div>
+      <div id="sub_div_passive_board"></div>
+      <div id="sub_div_options">
+          <div id="sub_div_options_splited">
+            <button type="options" id="button_generate">Generuj buttony</button>
+            <button type="options" id="button_shoot">Strzel</button>
+            <button type="options" id="button_place_ship">Postaw statek</button>
+          </div>
+          <div id="sub_div_options_splited">
+            <button type="ships" id="button_ship_4_mast">4-ro masztowy</button>
+            <button type="ships" id="button_ship_3_mast">3-ro masztowy</button>
+            <button type="ships" id="button_ship_vertical">wertykalnie</button>
+          </div>
       </div>
     </div>
 
@@ -36,6 +34,7 @@
       require("../renderer.js");
       require("./board/ship-selector");
       require("./board/board-fields");
+      require("./board/board-marks")
     </script>
   </body>
 </html>
