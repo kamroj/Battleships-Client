@@ -1,9 +1,9 @@
 //imports
 const field = require('./board-fields');
-const c = require('../ship/ship-selector');
+const c = require('../ship/ship-class');
 const mark = require('./board-marks');
 
-let ship = c.shipPlacerClass();
+let ship = c.Ship();
 
 document.getElementById('button_shoot').onclick = () => {
     fire();

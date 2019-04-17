@@ -19,7 +19,7 @@ function createActiveBoard(fieldsQuantity) {
         let buttonDiv = document.getElementById("sub_div_active_board");
         
         button.innerHTML = i;
-        button.id = i * 10; //nie moge powtarzać id dlatego taki hack
+        button.id = i + 1000; //dodaje 1000 by uniknąć konfliktu ID obu plansz
         button.className = `fields`;
         
         buttonDiv.appendChild(button);
@@ -66,35 +66,6 @@ module.exports = {
         return chosenFieldToPlaceShip
     }
 }
-
-// document.getElementById('button_shoot').onclick = () => {
-//     fire();
-// };
-
-// function fire() {
-//     mark.fire(chosenFieldToFire, false);
-//     console.log(`FIRE :: ${chosenFieldToFire} PACH PACH`);
-// }
-
-
-// document.getElementById('button_place_ship').onclick = () => {
-//     placeShip();
-// }
-
-// function placeShip() {
-//     console.log(`Wysyłam:: Statek: ${ship.lenght} masztowy, 
-//     pole: ${chosenFieldToPlaceShip}, wertkalnie: ${ship.isVertical}`)
-
-//     ship.fieldNumber = chosenFieldToPlaceShip;
-//     let shipJson = JSON.stringify(ship, null, 4);
-//     //postShipJson(shipJson);
-//     console.log(`${shipJson}`)
-
-//     mark.ship(chosenFieldToPlaceShip, ship.lenght);
-// }
-
-
-
 
 // function postShipJson(json) {
 //     const request = require('request')

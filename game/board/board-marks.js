@@ -10,7 +10,7 @@ function markShip(index, masts) {
 }
 
 function markFire(position, isHit) {
-    let index = position * 10;
+    let index = position + 1000; //dodaje 1000 by uniknąć konfliktu ID obu plansz
 
     $('.fields').ready(function() {
         $(`#${index}`).attr("disabled", true);
