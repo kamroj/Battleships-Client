@@ -1,12 +1,9 @@
-const c = require('./ship-selector');
-const mark = require('./board-marks');
+//imports
 const $ = require('jQuery');
 
 const fieldsQuantity = 100;
 let chosenFieldToFire = 0;
 let chosenFieldToPlaceShip = 0;
-
-let ship = c.shipPlacerClass();
 
 document.getElementById('button_generate').onclick = () => {
     createActiveBoard(fieldsQuantity);  
@@ -49,49 +46,52 @@ function reloadListenerToButtons() {
             $('.fields')
                 .not(this).not("[type='fire_miss']")
                 .prop('type', 'enabled');
-        
-        //if ($('.fields').not(this).attr('type') === 'selected'){
-        //if($(this).prop())
-            // $('.fields')
-            //     .not(this.getAttribute('fire_miss'))
-            //     .prop('type', 'enabled');
-        //}
     });
 
     $('.fieldsPassive').click(function() {
         chosenFieldToPlaceShip = this.id;
         $(this).prop('type', 'selected');
             $('.fieldsPassive')
-                .not(this)
+                .not(this).not("[type='ship_placed']")
                 .prop('type', 'enabled');
     });
 }
 
-document.getElementById('button_shoot').onclick = () => {
-    fire();
-};
+module.exports = {
+    chosenFieldToFire : () => {
+        return chosenFieldToFire
+    },
 
-function fire() {
-    mark.fire(chosenFieldToFire, false);
-    console.log(`FIRE :: ${chosenFieldToFire} PACH PACH`);
+    chosenFieldToPlaceShip : () => {
+        return chosenFieldToPlaceShip
+    }
 }
 
+// document.getElementById('button_shoot').onclick = () => {
+//     fire();
+// };
 
-document.getElementById('button_place_ship').onclick = () => {
-    placeShip();
-}
+// function fire() {
+//     mark.fire(chosenFieldToFire, false);
+//     console.log(`FIRE :: ${chosenFieldToFire} PACH PACH`);
+// }
 
-function placeShip() {
-    console.log(`Wysyłam:: Statek: ${ship.lenght} masztowy, 
-    pole: ${chosenFieldToPlaceShip}, wertkalnie: ${ship.isVertical}`)
 
-    ship.fieldNumber = chosenFieldToPlaceShip;
-    let shipJson = JSON.stringify(ship, null, 4);
-    //postShipJson(shipJson);
-    console.log(`${shipJson}`)
+// document.getElementById('button_place_ship').onclick = () => {
+//     placeShip();
+// }
 
-    mark.ship(chosenFieldToPlaceShip, ship.lenght);
-}
+// function placeShip() {
+//     console.log(`Wysyłam:: Statek: ${ship.lenght} masztowy, 
+//     pole: ${chosenFieldToPlaceShip}, wertkalnie: ${ship.isVertical}`)
+
+//     ship.fieldNumber = chosenFieldToPlaceShip;
+//     let shipJson = JSON.stringify(ship, null, 4);
+//     //postShipJson(shipJson);
+//     console.log(`${shipJson}`)
+
+//     mark.ship(chosenFieldToPlaceShip, ship.lenght);
+// }
 
 
 

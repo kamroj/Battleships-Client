@@ -1,7 +1,3 @@
-let shipSise;
-let vertical = false;
-
-//test
 class ShipPlacer {
     constructor() {
         this.lenght,
@@ -11,6 +7,7 @@ class ShipPlacer {
 }
 
 let shipPlacer = new ShipPlacer();
+let vertical = false;
 
 document.getElementById('button_ship_4_mast').onclick = () => {
     shipPlacer.lenght = 4;

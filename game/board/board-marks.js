@@ -1,8 +1,8 @@
+//imports
 const $ = require('jQuery');
 
 function markShip(index, masts) {
-    console.log(masts)
-    $('.fieldsPassive').click(function() {
+    $('.fieldsPassive').ready(function() {
         $(`#${index}`).attr("disabled", true);
         $(`#${index}`).prop('type', 'ship_placed');
         $(`#${index}`).html(`${masts}`);
