@@ -2,6 +2,7 @@
 const field = require('./board-fields');
 const c = require('../ship/ship-class');
 const mark = require('./board-marks');
+const buttons = require('../buttons-helper')
 
 let ship = c.Ship();
 
@@ -12,6 +13,7 @@ document.getElementById('button_shoot').onclick = () => {
 function fire() {
     mark.fire(field.chosenFieldToFire(), false);
     console.log(`FIRE :: ${field.chosenFieldToFire()} PACH PACH`);
+    buttons.disable('board_action_buttons', true);
 }
 
 

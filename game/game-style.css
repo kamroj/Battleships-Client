@@ -30,14 +30,14 @@ h1
     width: 650px;
 }
 
-#sub_div_options
+#sub_div_action_buttons
 {
     flex: 0 0 auto;
     height: 650px;
     width: 300px;
 }
 
-#sub_div_options_splited
+#sub_div_action_buttons_splited
 {
     clear: both;
     margin-bottom: 100px;
@@ -69,12 +69,12 @@ button,
     border: 1px solid rgba(10, 165, 5, 0.933);
 }
 
-[type="options"]
+[type="board_action_buttons"]
 {
     width: 10vw;
 }
 
-[type="ships"]
+[type="ship_action_buttons"]
 {
     width: 10vw;
 }
