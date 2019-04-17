@@ -12,7 +12,7 @@ function markShip(index, masts) {
 function markFire(position, isHit) {
     let index = position * 10;
 
-    $('.fields').click(function() {
+    $('.fields').ready(function() {
         $(`#${index}`).attr("disabled", true);
 
         if (isHit) {

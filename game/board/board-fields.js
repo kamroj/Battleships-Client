@@ -45,10 +45,17 @@ function reloadListenerToButtons() {
     //Generowanie listenerów do buttonów
     $('.fields').click(function() {
         chosenFieldToFire = this.innerHTML;
-        $(this).prop('type', 'selected');
+        $(this).prop('type', 'selected')
             $('.fields')
-                .not(this)
+                .not(this).not("[type='fire_miss']")
                 .prop('type', 'enabled');
+        
+        //if ($('.fields').not(this).attr('type') === 'selected'){
+        //if($(this).prop())
+            // $('.fields')
+            //     .not(this.getAttribute('fire_miss'))
+            //     .prop('type', 'enabled');
+        //}
     });
 
     $('.fieldsPassive').click(function() {
