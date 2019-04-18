@@ -10,8 +10,7 @@ function markShip(index, masts) {
 }
 
 function markFire(position, isHit) {
-    let index = position + 1000; //dodaje 1000 by uniknąć konfliktu ID obu plansz
-
+    let index = Number(position) + 1000; //dodaje 1000 by uniknąć konfliktu ID obu plansz, pytasz pewnie czemu coś takiego jak Number() ? po prostu JS
     $('.fields').ready(function() {
         $(`#${index}`).attr("disabled", true);
 
