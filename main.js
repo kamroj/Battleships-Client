@@ -10,8 +10,8 @@ let mainWindow
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1400,
+    height: 1000,
     webPreferences: {
       nodeIntegration: true,
     }
@@ -57,27 +57,6 @@ require('electron-reload')(__dirname, {
   // Note that the path to electron may vary according to the main file
   electron: require(`${__dirname}/node_modules/electron`)
 });
-
-
-//var XMLHttpRequest = require("http://localhost:8080/bool").XMLHttpRequest;
-// var request = require('request');
-//   request('http://localhost:8080/bool', function (error, response, body) {
-//     // if (!error && response.statusCode == 200) {
-//     //   var importedJSON = JSON.parse(body);
-//     //   console.log(importedJSON);
-//     // }
-//     // Vanilla
-      
-//   })
-// var httpRequest = new XMLHttpRequest()
-//       httpRequest.onreadystatechange = function (data) {
-//         console.log(data);
-//       }
-//       s
-//      // httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-//       httpRequest.open('GET', "http://localhost:8080/bool")
-//       httpRequest.send('username=' + encodeURIComponent(username))
-
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
