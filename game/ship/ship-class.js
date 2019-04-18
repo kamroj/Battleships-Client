@@ -7,7 +7,6 @@ class Ship {
 }
 
 let ship = new Ship();
-//let vertical = false;
 
 module.exports = {
     Ship: () => {
