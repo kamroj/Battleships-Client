@@ -29,7 +29,6 @@ function fire() {
 
 }
 
-
 document.getElementById('button_place_ship').onclick = () => {
     placeShip();
 }
@@ -42,10 +41,10 @@ function placeShip() {
 
         let request = {"length": ship.lenght,"isVertical": ship.isVertical,"fieldNumber": ship.fieldNumber};
 
-        communication.post(`place`, request, data =>{
-            console.log(data);
+        communication.post(`place`, request, fieldsList =>{
+            fieldsList.forEach(field => {
+                mark.ship(field, ship.lenght);
+            })
         });
-
-        mark.ship(field.chosenFieldToPlaceShip(), ship.lenght);
 }
 
