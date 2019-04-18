@@ -11,9 +11,12 @@ document.getElementById('button_generate').onclick = () => {
     reloadListenerToButtons(); 
 };
 
+ /**
+     * Generating active buttons on board where player shoots
+     * @fieldsQuantity - number of feelds 
+     */
 function createActiveBoard(fieldsQuantity) {
 
-    //Generowanie przyciskow
     for(i = 1; i <= fieldsQuantity; i++) {
         let button = document.createElement("button");
         let buttonDiv = document.getElementById("sub_div_active_board");
@@ -26,6 +29,10 @@ function createActiveBoard(fieldsQuantity) {
     }
 }
 
+/**
+     * Generating active buttons on board where player places ships
+     * @fieldsQuantity - number of feelds 
+     */
 function createPassiveBoard(fieldsQuantity) {
     for(i = 1; i <= fieldsQuantity; i++) {
         let button = document.createElement("button");
@@ -38,8 +45,12 @@ function createPassiveBoard(fieldsQuantity) {
     }
 }
 
+/**
+ * Function that reloads buttons listeners after buttons creation.
+ * Clicking button sets proper ID and assign it to chosenFieldToFire variable.
+ * Function also manages visual of selecting buttons.
+ */
 function reloadListenerToButtons() {
-    //Generowanie listenerów do buttonów
     $('.fields').click(function() {
         chosenFieldToFire = this.innerHTML;
         $(this).prop('type', 'selected')

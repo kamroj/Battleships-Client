@@ -5,6 +5,9 @@ const mark = require('./board-marks');
 const buttons = require('../buttons-helper')
 const communication = require('../communication-server-client');
 
+/**
+ * Generate randomly player id
+ */
 const id = Math.floor(Math.random() * 99999999); 
 let ship = c.Ship();
 
@@ -16,7 +19,10 @@ function fire() {
     console.log(`FIRE :: ${field.chosenFieldToFire()} PACH PACH`);
     //buttons.disable('board_action_buttons', true);
     
-    //komunikacja z serwerem
+    /**
+     * Send request to server about chosen field
+     * being fired
+     */
     let request = {"fieldNumber": field.chosenFieldToFire(), "playerId": id};
     
     communication.get(`shot`, request, result => {
@@ -39,6 +45,10 @@ function placeShip() {
 
         ship.fieldNumber = field.chosenFieldToPlaceShip();
 
+        /**
+         * Send request to server about chosen fields
+         * where ship is going to be placed
+         */
         let request = {"length": ship.lenght,"isVertical": ship.isVertical,"fieldNumber": ship.fieldNumber};
 
         communication.post(`place`, request, fieldsList =>{

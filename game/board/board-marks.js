@@ -1,6 +1,11 @@
 //imports
 const $ = require('jQuery');
 
+/**
+ * Marks fields according to ship type
+ * @param index - fields id chosen by player 
+ * @param masts - length of ship
+ */
 function markShip(index, masts) {
     $('.fieldsPassive').ready(function() {
         $(`#${index}`).attr("disabled", true);
@@ -9,6 +14,11 @@ function markShip(index, masts) {
     });
 }
 
+/**
+ * Marks field as hit or missed if shot hit or not hit the ship
+ * @param position - field id marked as fired chosen by player  
+ * @param isHit - mark field as hit/miss
+ */
 function markFire(position, isHit) {
     let index = Number(position) + 1000; //dodaje 1000 by uniknąć konfliktu ID obu plansz, pytasz pewnie czemu coś takiego jak Number() ? po prostu JS
     $('.fields').ready(function() {
