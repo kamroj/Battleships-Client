@@ -44,7 +44,7 @@ function reloadListenerToButtons() {
         chosenFieldToFire = this.innerHTML;
         $(this).prop('type', 'selected')
             $('.fields')
-                .not(this).not("[type='fire_miss']")
+                .not(this).not("[type='fire_miss']").not("[type='fire_hit']")
                 .prop('type', 'enabled');
     });
 
@@ -59,54 +59,11 @@ function reloadListenerToButtons() {
 
 module.exports = {
     chosenFieldToFire : () => {
-        return chosenFieldToFire
+        return Number(chosenFieldToFire)
     },
 
     chosenFieldToPlaceShip : () => {
-        return chosenFieldToPlaceShip
+        return Number(chosenFieldToPlaceShip)
     }
 }
-
-// function postShipJson(json) {
-//     const request = require('request')
-
-//     request.post('http://localhost:8080/bool', {},
-//         (error, res, body) => {
-//             if (error) {
-//                 console.error(error)
-//                 return
-//             }
-            //console.log(`statusCode: ${res.statusCode}`)
-            //console.log(body)
-//         })
-// }
-
-// document.getElementById('dupaButtonGet').onclick = () => {
-//     console.log('dupa button GET wcisniety')
-//     getBool();    
-// };
-
-// document.getElementById('dupaButtonPost').onclick = () => {
-//     console.log('dupa button POST wcisniety')
-//     postBool();    
-// };
-
-
-// function getBool() {
-//     const request = require('request')
-
-//     request.get('http://localhost:8080/bool', {
-//         json: {
-//             todo: 'Buy the milk'
-//         }
-//     }, (error, res, body) => {
-//         if (error) {
-//             console.error(error)
-//             return
-//         }
-//         //console.log(`statusCode: ${res.statusCode}`)
-//         console.log(body)
-//     })
-// }
-
 
