@@ -1,5 +1,7 @@
 //imports
 const $ = require('jQuery');
+const player = require('../player/player')
+const mark = require('./board-marks')
 
 const fieldsQuantity = 100;
 let chosenFieldToFire = 0;
@@ -8,26 +10,29 @@ let chosenFieldToPlaceShip = 0;
 /**
  * When game.html is loaded do the job
  */
-$(document).ready(()=> {
-    createActiveBoard(fieldsQuantity);  
-    createPassiveBoard(fieldsQuantity);
-    reloadListenerToButtons();
+$(document).ready(() => {
+    setTimeout(() => {
+        createActiveBoard(fieldsQuantity);
+        createPassiveBoard(fieldsQuantity);
+        reloadListenerToButtons();
+    }, 0)
+    
 })
 
- /**
-     * Generating active buttons on board where player shoots
-     * @fieldsQuantity - number of feelds 
-     */
+/**
+    * Generating active buttons on board where player shoots
+    * @fieldsQuantity - number of feelds 
+    */
 function createActiveBoard(fieldsQuantity) {
-
-    for(i = 1; i <= fieldsQuantity; i++) {
+    for (i = 1; i <= fieldsQuantity; i++) {
         let button = document.createElement("button");
         let buttonDiv = document.getElementById("sub_div_active_board");
-        
+
         button.innerHTML = i;
         button.id = i + 1000; //dodaje 1000 by uniknąć konfliktu ID obu plansz
         button.className = `fields`;
-        
+        button.type = `enabled`;
+
         buttonDiv.appendChild(button);
     }
 }
@@ -37,14 +42,19 @@ function createActiveBoard(fieldsQuantity) {
      * @fieldsQuantity - number of feelds 
      */
 function createPassiveBoard(fieldsQuantity) {
-    for(i = 1; i <= fieldsQuantity; i++) {
+    for (i = 1; i <= fieldsQuantity; i++) {
         let button = document.createElement("button");
         let buttonDiv = document.getElementById("sub_div_passive_board");
-        
+
         button.id = i;
         button.className = `fieldsPassive`;
-        
+        button.type = `enabled`;
+
         buttonDiv.appendChild(button);
+
+        player.getShips().forEach(value => {
+            mark.ship(value, 4);
+        })
     }
 }
 
@@ -54,29 +64,29 @@ function createPassiveBoard(fieldsQuantity) {
  * Function also manages visual of selecting buttons.
  */
 function reloadListenerToButtons() {
-    $('.fields').click(function() {
+    $('.fields').click(function () {
         chosenFieldToFire = this.innerHTML;
         $(this).prop('type', 'selected')
-            $('.fields')
-                .not(this).not("[type='fire_miss']").not("[type='fire_hit']")
-                .prop('type', 'enabled');
+        $('.fields')
+            .not(this).not("[type='fire_miss']").not("[type='fire_hit']")
+            .prop('type', 'enabled');
     });
 
-    $('.fieldsPassive').click(function() {
+    $('.fieldsPassive').click(function () {
         chosenFieldToPlaceShip = this.id;
         $(this).prop('type', 'selected');
-            $('.fieldsPassive')
-                .not(this).not("[type='ship_placed']")
-                .prop('type', 'enabled');
+        $('.fieldsPassive')
+            .not(this).not("[type='ship_placed']")
+            .prop('type', 'enabled');
     });
 }
 
 module.exports = {
-    chosenFieldToFire : () => {
+    chosenFieldToFire: () => {
         return Number(chosenFieldToFire)
     },
 
-    chosenFieldToPlaceShip : () => {
+    chosenFieldToPlaceShip: () => {
         return Number(chosenFieldToPlaceShip)
     }
 }

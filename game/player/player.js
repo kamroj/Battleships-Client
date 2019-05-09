@@ -6,8 +6,14 @@ const buttons = require('../buttons-helper');
  * Generate randomly player id
  */
 const id = Math.floor(Math.random() * 100000000);
+
+//do wywalenia
+let ships;
+
 // register yourself as a player on the server
-communication.post("/register", id, null);
+communication.post("/register", id, value => {
+    ships = value;
+});
 
 /**
  * Ask server if it is my turn
@@ -26,5 +32,11 @@ module.exports = {
     },
     refresh : () => {
         isMyTurn();
+    }
+}
+
+module.exports = {
+    getShips : () => {
+        return ships;
     }
 }
