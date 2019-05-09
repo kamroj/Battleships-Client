@@ -25,8 +25,16 @@ function fire() {
         console.log("Wynik strzału" + result);
         if(result.shotOutcome === 'MISS')
             mark.fire(field.chosenFieldToFire(), false);
-        else
+        else {
             mark.fire(field.chosenFieldToFire(), true);
+            if (result.shotOutcome === 'SUNK' || result.shotOutcome === 'WIN') {
+                communication.get('misses', player.id(), misses => {
+                    misses.forEach(value => {
+                        mark.fire(value, false);
+                    })
+                })
+            }
+        }
         player.refresh();
     })
 }
