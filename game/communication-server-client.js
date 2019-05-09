@@ -6,8 +6,8 @@ const $ = require('jQuery');
  * @param {*} request - json data
  * @param {*} result - data received from server
  */
-function get(urlEnd, request, result) {
-    $.post(`http://localhost:7000/${urlEnd}`, request, result)
+function doGet(urlEnd, request, result) {
+    $.get(`http://localhost:7000/${urlEnd}/${request}`, result)
 }
 
 /**
@@ -33,6 +33,6 @@ module.exports = {
     },
 
     get : (urlEnd, request, result) => {
-        get(urlEnd, request, result)
+        doGet(urlEnd, request, result)
     }
 }
