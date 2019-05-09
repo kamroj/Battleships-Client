@@ -27,7 +27,7 @@ function fire() {
             mark.fire(field.chosenFieldToFire(), false);
         else
             mark.fire(field.chosenFieldToFire(), true);
-        console.log(result)
+        player.refresh();
     })
 }
 

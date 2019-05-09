@@ -1,5 +1,6 @@
 
 const communication = require('../communication-server-client');
+const buttons = require('../buttons-helper');
 
 /**
  * Generate randomly player id
@@ -15,7 +16,7 @@ function isMyTurn() {
     console.log(`Turn check`);
     communication.get(`turn`, id, result => {
         console.log(result);
-        //buttons.disable('board_action_buttons', result);
+        buttons.disable('board_action_buttons', !result);
     })
 }
 setInterval(isMyTurn, 3000);
@@ -23,5 +24,8 @@ setInterval(isMyTurn, 3000);
 module.exports = {
     id : () => {
         return id;
+    },
+    refresh : () => {
+        isMyTurn();
     }
 }
