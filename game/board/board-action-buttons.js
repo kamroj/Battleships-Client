@@ -20,17 +20,17 @@ function fire() {
      * Send request to server about chosen field
      * being fired
      */
-    let request = {"playerID": player.id, "field": field.chosenFieldToFire()};
-    
+    let request = {"playerID": player.id(), "field": field.chosenFieldToFire()};
+
     communication.get(`shot`, request, result => {
-        console.log(result);
+        console.log(request);
+        console.log("Wynik strzału" + result);
         if(result.shotOutcome === 'miss')
             mark.fire(field.chosenFieldToFire(), false);
         else
             mark.fire(field.chosenFieldToFire(), true);
         console.log(result)
     })
-
 }
 
 document.getElementById('button_place_ship').onclick = () => {
