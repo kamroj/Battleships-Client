@@ -8,17 +8,16 @@
     <link rel="stylesheet" href="game-style.css" />
   </head>
 
-  <body>
+  <body onload="()=> {console.log('asd')}">
     <!-- <div class="main_div"> -->
     <div id="main_div">
       <div id="sub_div_active_board"></div>
       <div id="sub_div_passive_board"></div>
       <div id="sub_div_action_buttons">
           <div id="sub_div_action_buttons_splited">
-            <button type="board_action_buttons" id="button_generate">Generuj buttony</button>
-            <button type="board_action_buttons" id="button_change_theme">Zmień kolor planszy</button>
             <button type="board_action_buttons" id="button_shoot">Strzel</button>
             <button type="board_action_buttons" id="button_place_ship">Postaw statek</button>
+            <button type="board_action_buttons" id="button_change_theme">Zmień kolor planszy</button>
           </div>
           <div id="sub_div_action_buttons_splited">
             <button type="ship_action_buttons" id="button_ship_4_mast">4-ro masztowy</button>

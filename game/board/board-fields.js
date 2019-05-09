@@ -5,11 +5,14 @@ const fieldsQuantity = 100;
 let chosenFieldToFire = 0;
 let chosenFieldToPlaceShip = 0;
 
-document.getElementById('button_generate').onclick = () => {
+/**
+ * When game.html is loaded do the job
+ */
+$(document).ready(()=> {
     createActiveBoard(fieldsQuantity);  
     createPassiveBoard(fieldsQuantity);
-    reloadListenerToButtons(); 
-};
+    reloadListenerToButtons();
+})
 
  /**
      * Generating active buttons on board where player shoots

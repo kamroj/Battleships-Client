@@ -13,9 +13,8 @@ communication.post("/register", id, null);
  * Ask server if it is my turn
  */
 function isMyTurn() {
-    console.log(`Turn check`);
     communication.get(`turn`, id, result => {
-        console.log(result);
+        console.log(`Is my turn: ${result}`);
         buttons.disable('board_action_buttons', !result);
     })
 }
