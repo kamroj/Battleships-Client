@@ -17,6 +17,11 @@ $(document).ready(() => {
         reloadListenerToButtons();
     }, 0)
     
+    setTimeout(() => {
+        player.getShips().forEach(value => {
+            mark.ship(value, 4);
+        })
+    }, 1000)
 })
 
 /**
@@ -52,9 +57,7 @@ function createPassiveBoard(fieldsQuantity) {
 
         buttonDiv.appendChild(button);
 
-        player.getShips().forEach(value => {
-            mark.ship(value, 4);
-        })
+      
     }
 }
 

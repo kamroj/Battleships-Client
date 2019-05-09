@@ -32,10 +32,7 @@ module.exports = {
     },
     refresh : () => {
         isMyTurn();
-    }
-}
-
-module.exports = {
+    },
     getShips : () => {
         return ships;
     }
