@@ -7,7 +7,7 @@ const $ = require('jQuery');
  * @param {*} result - data received from server
  */
 function get(urlEnd, request, result) {
-    $.post(`http://localhost:8080/${urlEnd}`, request, result)
+    $.post(`http://localhost:7000/${urlEnd}`, request, result)
 }
 
 /**
@@ -18,7 +18,7 @@ function get(urlEnd, request, result) {
  */
 function post(urlEnd, request, result) {
     $.ajax({
-        url:`http://localhost:8080/${urlEnd}`,
+        url:`http://localhost:7000/${urlEnd}`,
         type:"POST",
         data:JSON.stringify(request),
         contentType:"application/json; charset=utf-8",
