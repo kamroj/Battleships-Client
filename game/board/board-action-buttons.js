@@ -14,7 +14,6 @@ document.getElementById('button_shoot').onclick = () => {
 
 function fire() {
     console.log(`FIRE :: ${field.chosenFieldToFire()} PACH PACH`);
-    //buttons.disable('board_action_buttons', true);
     
     /**
      * Send request to server about chosen field
@@ -22,14 +21,13 @@ function fire() {
      */
     let request = {"playerID": player.id(), "field": field.chosenFieldToFire()};
 
-    communication.get(`shot`, request, result => {
-        console.log(request);
+    communication.post(`shot`, request, result => {
         console.log("Wynik strzału" + result);
-        if(result.shotOutcome === 'miss')
+        if(result.shotOutcome === 'MISS')
             mark.fire(field.chosenFieldToFire(), false);
         else
             mark.fire(field.chosenFieldToFire(), true);
-        console.log(result)
+        player.refresh();
     })
 }
 
