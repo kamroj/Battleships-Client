@@ -2,13 +2,12 @@
 const field = require('./board-fields');
 const c = require('../ship/ship-class');
 const mark = require('./board-marks');
-const buttons = require('../buttons-helper')
 const communication = require('../communication-server-client');
 const player =  require('../player/player');
 
 let ship = c.Ship();
 
-document.getElementById('button_shoot').onclick = () => {
+document.getElementById('SHOT').onclick = () => {
     fire();
 };
 
@@ -39,7 +38,7 @@ function fire() {
     })
 }
 
-document.getElementById('button_place_ship').onclick = () => {
+document.getElementById('PLACE_SHIP').onclick = () => {
     placeShip();
 }
 

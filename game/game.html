@@ -15,14 +15,15 @@
       <div id="sub_div_passive_board"></div>
       <div id="sub_div_action_buttons">
           <div id="sub_div_action_buttons_splited">
-            <button type="board_action_buttons" id="button_shoot">Strzel</button>
-            <button type="board_action_buttons" id="button_place_ship">Postaw statek</button>
-            <button type="board_action_buttons" id="button_change_theme">Zmień kolor planszy</button>
+            <button type="board_buttons" class="board_action_buttons" id="SHOT">Strzel</button>
+            <button type="board_buttons" class="board_action_buttons" id="PLACE_SHIP">Postaw statek</button>
+            <button type="board_buttons" class="board_settings_buttons" id="CHANGE_COLOR">Zmień kolor planszy</button>
+            <button type="board_buttons" class="board_settings_buttons" id="CHANGE_LANGUAGE">Zmień język</button>
           </div>
           <div id="sub_div_action_buttons_splited">
-            <button type="ship_action_buttons" id="button_ship_4_mast">4-ro masztowy</button>
-            <button type="ship_action_buttons" id="button_ship_3_mast">3 masztowy</button>
-            <button type="ship_action_buttons" id="button_ship_vertical">wertykalnie</button>
+            <button type="board_buttons" id="SHIP_4_MAST">4-ro masztowy</button>
+            <button type="board_buttons" id="SHIP_3_MAST">3 masztowy</button>
+            <button type="board_buttons" id="TOGGLE_VERTICAL">wertykalnie</button>
           </div>
       </div>
     </div>
@@ -32,6 +33,8 @@
     <script>
       // You can also require other files to run in this process
       require("../renderer.js");
+
+      require("../languages/language-menager");
       
       require("./board/board-fields");
       require("./board/board-marks")

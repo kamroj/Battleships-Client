@@ -7,8 +7,8 @@ const $ = require('jQuery');
  * @param {*} result - data received from server
  */
 function doGet(urlEnd, request, result) {
-    //$.get(`http://localhost:7000/${urlEnd}/${request}`, result)
-    $.get(`http://10.30.1.116:7000/${urlEnd}/${request}`, result)
+    $.get(`http://localhost:7000/${urlEnd}/${request}`, result)
+    //get(`http://10.30.1.116:7000/${urlEnd}/${request}`, result)
 }
 
 /**
@@ -19,7 +19,8 @@ function doGet(urlEnd, request, result) {
  */
 function post(urlEnd, request, result) {
     $.ajax({
-        url:`http://10.30.1.116:7000/${urlEnd}`,
+        url:`http://localhost:7000/${urlEnd}`,
+        //url:`http://10.30.1.116:7000/${urlEnd}`,
         type:"POST",
         data:JSON.stringify(request),
         contentType:"application/json; charset=utf-8",
