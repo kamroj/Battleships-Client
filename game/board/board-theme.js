@@ -19,8 +19,10 @@ function loadLightThemeSettings() {
 
     $('button').css({
         'color': 'black',
-        'border': '1px solid black'
+        'border': '1px solid black',
+        'vertical_button_checked': 'vertical_button_checked_dark'
     })
+
     isDarkTheme = false;
 }
 

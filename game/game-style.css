@@ -92,6 +92,14 @@ button,
     opacity: 0.6;
 }
 
+[type="vertical_button_checked"]
+{
+    border: 1px solid rgba(38, 150, 4, 0.933);
+    background-color: rgb(17, 99, 21);
+    color: rgb(255, 250, 250);
+    width: 10vw;
+}
+
 button:hover:enabled
 {
     background: #003d99;    
