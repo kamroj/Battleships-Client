@@ -1,4 +1,4 @@
-//imports
+//importCHANGE_LANGUAGEs
 const $ = require('jQuery');
 
 let isDarkTheme = true;
@@ -13,28 +13,12 @@ function changeTheme() {
 
 function loadLightThemeSettings() {
     console.log("Load light theme!");
-    $('body').css({
-        'background': '#eeeded'
-    })
-
-    $('button').css({
-        'color': 'black',
-        'border': '1px solid black',
-        'vertical_button_checked': 'vertical_button_checked_dark'
-    })
-
+    $('#asd').attr("href", "game-style-light.css");
     isDarkTheme = false;
 }
 
 function loadDarkThemeSettings() {
     console.log("Load dark theme!");
-    $('body').css({
-        'background': '#151519'
-    })
-
-    $('button').css({
-        'color': '#ccc',
-        'border': '1px solid #045bbe'
-    })
+    $('#asd').attr("href", "game-style.css");
     isDarkTheme = true;
 }
