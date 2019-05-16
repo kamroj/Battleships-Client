@@ -16,12 +16,6 @@ $(document).ready(() => {
         createPassiveBoard(fieldsQuantity);
         reloadListenerToButtons();
     }, 0)
-    
-    // setTimeout(() => {
-    //     player.getShips().forEach(value => {
-    //         mark.ship(value, 4);
-    //     })
-    // }, 1000)
 })
 
 /**
@@ -29,11 +23,11 @@ $(document).ready(() => {
     * @fieldsQuantity - number of feelds 
     */
 function createActiveBoard(fieldsQuantity) {
-    for (i = 1; i <= fieldsQuantity; i++) {
+    for (i = 0; i < fieldsQuantity; i++) {
         let button = document.createElement("button");
         let buttonDiv = document.getElementById("sub_div_active_board");
 
-        button.innerHTML = i;
+        button.innerHTML = i + 1;
         button.id = i + 1000; //dodaje 1000 by uniknąć konfliktu ID obu plansz
         button.className = `fields`;
         button.type = `enabled`;
@@ -47,7 +41,7 @@ function createActiveBoard(fieldsQuantity) {
      * @fieldsQuantity - number of feelds 
      */
 function createPassiveBoard(fieldsQuantity) {
-    for (i = 1; i <= fieldsQuantity; i++) {
+    for (i = 0; i < fieldsQuantity; i++) {
         let button = document.createElement("button");
         let buttonDiv = document.getElementById("sub_div_passive_board");
 
@@ -56,8 +50,6 @@ function createPassiveBoard(fieldsQuantity) {
         button.type = `enabled`;
 
         buttonDiv.appendChild(button);
-
-      
     }
 }
 
@@ -86,7 +78,7 @@ function reloadListenerToButtons() {
 
 module.exports = {
     chosenFieldToFire: () => {
-        return Number(chosenFieldToFire)
+        return Number(chosenFieldToFire) -1
     },
 
     chosenFieldToPlaceShip: () => {
