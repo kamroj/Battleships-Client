@@ -1,48 +1,9 @@
+@import url("game-style.css");
+
 body
 {
     height: 100vh;
     background: #e0dfdf;
-}
-
-h1 
-{
-    color:white;
-    font-size: 5vh;
-}
-
-
-#main_div
-{
-    float: left;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-#sub_div_active_board,
-#sub_div_passive_board
-{
-    flex: 0 0 auto;
-    height: 650px;
-    width: 650px;
-}
-
-#sub_div_action_buttons
-{
-    flex: 0 0 auto;
-    height: 650px;
-    width: 300px;
-}
-
-#sub_div_action_buttons_splited
-{
-    clear: both;
-    margin-bottom: 100px;
-    height: 50%;
-    width: 100px;
 }
 
 button,
@@ -67,11 +28,6 @@ button,
 [type="selected"]
 {
     border: 2px solid rgba(253, 207, 0, 0.933);
-}
-
-[type="board_buttons"]
-{
-    width: 10vw;
 }
 
 [type="ship_placed"]
