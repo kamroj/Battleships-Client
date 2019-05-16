@@ -1,6 +1,6 @@
-
 const communication = require('../communication-server-client');
 const buttons = require('../buttons-helper');
+const mark = require('../board/board-marks');
 
 /**
  * Generate randomly player id
@@ -22,6 +22,14 @@ function isMyTurn() {
     communication.get(`turn`, id, result => {
         console.log(`Is my turn: ${result}`);
         buttons.disable('board_action_buttons', !result);
+
+        // if (result) {
+        //     communication.get(`summary`, id, opponentShots => {
+        //         opponentShots.getShotResults().forEach(shot => {
+        //             mark.opponentShots(shot.getField());
+        //         })
+        //     })
+        // }
     })
 }
 setInterval(isMyTurn, 3000);

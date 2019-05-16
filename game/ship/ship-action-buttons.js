@@ -30,10 +30,10 @@ document.getElementById('TOGGLE_VERTICAL').onclick = () => {
 }
 
 function changeShipDirection() {
-    ship.isVertical = ship.isVertical === false ? true : false;
+    ship.isHorizontally = ship.isHorizontally === false ? true : false;
 
-    ship.isVertical ? $('#TOGGLE_VERTICAL').prop('type', 'vertical_button_checked')
+    ship.isHorizontally ? $('#TOGGLE_VERTICAL').prop('type', 'vertical_button_checked')
                     : $('#TOGGLE_VERTICAL').prop('type', 'board_buttons');
                     
-    console.log(`Ship vertical:: ${ship.isVertical}`);
+    console.log(`Ship vertical:: ${ship.isHorizontally}`);
 }
