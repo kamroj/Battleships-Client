@@ -17,11 +17,11 @@ $(document).ready(() => {
         reloadListenerToButtons();
     }, 0)
     
-    setTimeout(() => {
-        player.getShips().forEach(value => {
-            mark.ship(value, 4);
-        })
-    }, 1000)
+    // setTimeout(() => {
+    //     player.getShips().forEach(value => {
+    //         mark.ship(value, 4);
+    //     })
+    // }, 1000)
 })
 
 /**
