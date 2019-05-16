@@ -12,6 +12,17 @@ function doGet(urlEnd, request, result) {
 }
 
 /**
+ * Wrapper for http request - GET
+ * @param {*} urlEnd - and of url address
+ * @param {*} result - data received from server
+ */
+function doGet(urlEnd, result) {
+    $.get(`http://localhost:7000/${urlEnd}`, result)
+    //get(`http://10.30.1.116:7000/${urlEnd}/`, result)
+}
+
+
+/**
  * Wrapper for http request - POST
  * @param {*} urlEnd - and of url address
  * @param {*} request - json data
