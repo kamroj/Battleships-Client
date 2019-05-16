@@ -4,13 +4,6 @@ body
     background: #151519;
 }
 
-h1 
-{
-    color:white;
-    font-size: 5vh;
-}
-
-
 #main_div
 {
     float: left;
@@ -75,9 +68,9 @@ button,
 
 [type="ship_placed"]
 {
-    border: 3px solid rgba(215, 253, 0, 0.933);
-    background-color: rgba(234, 241, 190, 0.933);
-
+    border: 3px solid rgba(170, 185, 83, 0.933);
+    background-color: rgba(251, 255, 224, 0.933);
+    color: rgb(10, 10, 10);
 }
 
 [type="fire_hit"]
