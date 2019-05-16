@@ -1,0 +1,29 @@
+@import url("room-list-style.css");
+
+body
+{
+    background: #e0dfdf;
+}
+
+button,
+[type="menu_enabled"]
+{
+
+    background:  rgba(235, 234, 229, 0.933);
+    color: rgb(0, 0, 0);
+
+    border: 3px solid rgba(156, 151, 128, 0.933);
+}
+
+[type="list_enabled"]
+{
+    background:  rgba(235, 234, 229, 0.933);
+    color: rgb(0, 0, 0);
+
+    border: 3px solid rgba(156, 151, 128, 0.933);
+}
+
+button:hover:enabled
+{
+    background: #d8c17d;    
+}
