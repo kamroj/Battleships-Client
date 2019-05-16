@@ -76,6 +76,8 @@ button,
 [type="ship_placed"]
 {
     border: 3px solid rgba(215, 253, 0, 0.933);
+    background-color: rgba(234, 241, 190, 0.933);
+
 }
 
 [type="fire_hit"]
