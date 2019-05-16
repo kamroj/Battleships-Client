@@ -6,6 +6,7 @@ let roomsList;
 
 $(document).ready(() => {
     setTimeout(() => {
+        getRoomsList();
         createRoomList();
         loadRoomListeners();
     }, 1)
@@ -40,6 +41,7 @@ const { remote } = require('electron')
 function loadRoomListeners() {
     $('.list').click(function () {
         let body = `playerId=${player.id()}&roomId=${this.id}`;
+        console.log(body)
         communication.postUrlEncoded(`joinRoom`, body, result => {
             console.log(result);
             remote.getCurrentWindow().loadFile('game/game.html')
