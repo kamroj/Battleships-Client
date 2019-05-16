@@ -11,7 +11,7 @@ const id = Math.floor(Math.random() * 100000000);
 let ships;
 
 // register yourself as a player on the server
-communication.post("/register", id, value => {
+communication.post("register", id, value => {
     ships = value;
 });
 

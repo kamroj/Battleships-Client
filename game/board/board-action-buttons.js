@@ -52,12 +52,13 @@ function placeShip() {
      * Send request to server about chosen fields
      * where ship is going to be placed
      */
-    let request = {"length": ship.lenght,"isVertical": ship.isVertical,"fieldNumber": ship.fieldNumber};
+    let request = {"playerID": player.id(), "field": ship.fieldNumber, "shipLength": ship.lenght,"isHorizontally": ship.isVertical};
+    //let request = {"length": ship.lenght,"isVertical": ship.isVertical,"fieldNumber": ship.fieldNumber};
 
-    communication.post(`place`, request, fieldsList =>{
-        fieldsList.forEach(field => {
+    communication.post(`placeShip`, request, shipFields =>{
+        console.log(shipFields)
+        shipFields.shotDownFields.forEach(field => {
             mark.ship(field, ship.lenght);
         })
     });
 }
-

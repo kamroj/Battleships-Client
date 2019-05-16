@@ -1,6 +1,6 @@
 //imports
 const $ = require('jQuery');
-const c = require('./ship-class')
+const c = require('./ship-class');
 
 let ship = c.Ship();
 
@@ -36,4 +36,4 @@ function changeShipDirection() {
                     : $('#TOGGLE_VERTICAL').prop('type', 'board_buttons');
                     
     console.log(`Ship vertical:: ${ship.isVertical}`);
-} 
+}
