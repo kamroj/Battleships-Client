@@ -44,7 +44,7 @@ document.getElementById('PLACE_SHIP').onclick = () => {
 
 function placeShip() {
     console.log(`Wysyłam:: Statek: ${ship.lenght} masztowy, 
-    pole: ${field.chosenFieldToPlaceShip()}, wertkalnie: ${ship.isVertical}`)
+    pole: ${field.chosenFieldToPlaceShip()}, wertkalnie: ${ship.isHorizontally}`)
 
     ship.fieldNumber = field.chosenFieldToPlaceShip();
 
@@ -52,8 +52,8 @@ function placeShip() {
      * Send request to server about chosen fields
      * where ship is going to be placed
      */
-    let request = {"playerID": player.id(), "field": ship.fieldNumber, "shipLength": ship.lenght,"isHorizontally": ship.isVertical};
-    //let request = {"length": ship.lenght,"isVertical": ship.isVertical,"fieldNumber": ship.fieldNumber};
+    let request = {"playerID": player.id(), "field": ship.fieldNumber, "shipLength": ship.lenght,"isHorizontally": ship.isHorizontally};
+    //let request = {"length": ship.lenght,"isHorizontally": ship.isHorizontally,"fieldNumber": ship.fieldNumber};
 
     communication.post(`placeShip`, request, shipFields =>{
         console.log(shipFields)
