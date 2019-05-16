@@ -1,95 +1,43 @@
+@import url("game-style.css");
+
 body
 {
-    height: 100vh;
     background: #e0dfdf;
-}
-
-h1 
-{
-    color:white;
-    font-size: 5vh;
-}
-
-
-#main_div
-{
-    float: left;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-#sub_div_active_board,
-#sub_div_passive_board
-{
-    flex: 0 0 auto;
-    height: 650px;
-    width: 650px;
-}
-
-#sub_div_action_buttons
-{
-    flex: 0 0 auto;
-    height: 650px;
-    width: 300px;
-}
-
-#sub_div_action_buttons_splited
-{
-    clear: both;
-    margin-bottom: 100px;
-    height: 50%;
-    width: 100px;
 }
 
 button,
 [type="enabled"]
 {
-    outline: none;
-    top: 50%;
-    left: 50%;
-    background: none;
+
+    background:  rgba(235, 234, 229, 0.933);
     color: black;
-    width: 60px;
-    height: 60px;
-    border: 1px solid black;
-    font-size: 15px;
-    transition: .6s;
-    margin-bottom: 2px;
-    margin-left: 2px;
-    overflow: hidden;
+    border: 3px solid rgba(156, 151, 128, 0.933);
 }
 
 
 [type="selected"]
 {
-    border: 2px solid rgba(253, 207, 0, 0.933);
-}
+    border: 3px solid rgba(147, 226, 20, 0.933);
+    background-color: rgba(204, 238, 149, 0.933);
 
-[type="board_buttons"]
-{
-    width: 10vw;
 }
 
 [type="ship_placed"]
 {
-    border: 1px solid rgba(253, 207, 0, 0.933);
-    background-color: rgba(238, 232, 208, 0.933);
+    border: 3px solid rgba(253, 207, 0, 0.933);
+    background-color: rgba(255, 247, 213, 0.933);
 }
 
 [type="fire_hit"]
 {
-    border: 2px solid rgba(10, 165, 5, 0.933);
+    border: 3px solid rgba(10, 165, 5, 0.933);
     color: green;
     background-color: rgb(224, 243, 213);
 }
 
 [type="fire_miss"]
 {
-    border: 1px solid rgba(150, 9, 4, 0.933);
+    border: 2px solid rgba(150, 9, 4, 0.933);
     color: red;
     background-color: rgb(248, 221, 225);
     opacity: 0.6;
@@ -97,28 +45,12 @@ button,
 
 [type="vertical_button_checked"]
 {
-    border: 1px solid rgba(38, 150, 4, 0.933);
-    background-color: rgb(128, 187, 93);
+    border: 3px solid rgba(147, 226, 20, 0.933);
+    background-color: rgba(204, 238, 149, 0.933);
     color: rgb(10, 10, 10);
-    width: 10vw;
 }
 
 button:hover:enabled
 {
     background: #d8c17d;    
-    cursor: pointer;
-}
-
-button:hover::before:enabled
-{
-    transform: translateX(300px) skewX(-15deg);
-    opacity: 0.6;
-    transition: .7s;
-}
-
-button:hover::after:enabled
-{
-    transform: translateX(300px) skewX(-15deg);
-    opacity: .6s;
-    transition: .7s;
 }
