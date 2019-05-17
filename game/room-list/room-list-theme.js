@@ -3,7 +3,7 @@ const $ = require('jQuery');
 
 let isDarkTheme = true;
 
-document.getElementById(`CHANGE_COLOR`).onclick = () => {
+document.getElementById(`button_change_color`).onclick = () => {
     changeTheme();
 }
 
@@ -13,12 +13,12 @@ function changeTheme() {
 
 function loadLightThemeSettings() {
     console.log("Load light theme!");
-    $('game-style').attr("href", "game-style-light.css");
+    $('room-list-style').attr("href", "./room-list/room-list-style-light.css");
     isDarkTheme = false;
 }
 
 function loadDarkThemeSettings() {
     console.log("Load dark theme!");
-    $('game-style').attr("href", "game-style.css");
+    $('room-list-style').attr("href", "./room-list/room-list-style.css");
     isDarkTheme = true;
 }
