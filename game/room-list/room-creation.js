@@ -4,7 +4,7 @@ const { remote } = require('electron')
 
 let roomID;
 
-document.getElementById("button_new_game").onclick = () => {
+document.getElementById("MENU_NEW_GAME").onclick = () => {
     communication.post(`createRoom`, player.id(), result => {
         roomID = result;
         remote.getCurrentWindow().loadFile('game/game.html')
