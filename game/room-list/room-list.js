@@ -13,7 +13,7 @@ $(document).ready(() => {
 })
 
 function getRoomsList() {
-    communication.get(`rooms`, result => {
+    communication.getWithoutRequest(`rooms`, result => {
         roomsList = result;
         console.log(result);
     })

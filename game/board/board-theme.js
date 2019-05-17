@@ -13,12 +13,12 @@ function changeTheme() {
 
 function loadLightThemeSettings() {
     console.log("Load light theme!");
-    $('game-style').attr("href", "game-style-light.css");
+    $('#game-style').attr("href", "game-style-light.css");
     isDarkTheme = false;
 }
 
 function loadDarkThemeSettings() {
     console.log("Load dark theme!");
-    $('game-style').attr("href", "game-style.css");
+    $('#game-style').attr("href", "game-style.css");
     isDarkTheme = true;
 }

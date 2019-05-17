@@ -16,7 +16,7 @@ function doGet(urlEnd, request, result) {
  * @param {*} urlEnd - and of url address
  * @param {*} result - data received from server
  */
-function doGet(urlEnd, result) {
+function doGetWithoutRequest(urlEnd, result) {
     $.get(`http://localhost:7000/${urlEnd}`, result)
     //get(`http://10.30.1.116:7000/${urlEnd}/`, result)
 }
@@ -59,11 +59,6 @@ function postUrlEncoded(urlEnd, request, result) {
     })
 }
 
-
-
-
-
-
 module.exports = {
     post : (urlEnd, request, result) => {
         post(urlEnd, request, result);
@@ -71,6 +66,10 @@ module.exports = {
 
     get : (urlEnd, request, result) => {
         doGet(urlEnd, request, result)
+    },
+
+    getWithoutRequest : (urlEnd, result) => {
+        doGetWithoutRequest(urlEnd, result)
     },
 
     postUrlEncoded : (urlEnd, request, result) => {
