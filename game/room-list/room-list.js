@@ -17,6 +17,7 @@ function getRoomsList() {
     communication.getWithoutRequest(`rooms`, result => {
         roomsList = result;
     })
+    console.log(`ID GRACZA:: ${player.id()}`)
 }
 
 function createRoomList() {

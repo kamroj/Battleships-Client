@@ -19,7 +19,6 @@ function fire() {
     let request = {"playerID": player.id(), "field": field.chosenFieldToFire()};
 
     communication.post(`shot`, request, result => {
-
         if(result.shotOutcome === 'MISS') {
             mark.fire(field.chosenFieldToFire(), false);
             player.refresh();
@@ -57,11 +56,9 @@ document.getElementById('PLACE_SHIP').onclick = () => {
   */
 function placeShip() {
     ship.fieldNumber = field.chosenFieldToPlaceShip();
-
     let request = {"playerID": player.id(), "field": ship.fieldNumber, "shipLength": ship.lenght,"isHorizontally": ship.isHorizontally};
 
     communication.post(`placeShip`, request, shipFields =>{
-        console.log(shipFields)
         shipFields.shotDownFields.forEach(field => {
             mark.ship(field, ship.lenght);
         })
