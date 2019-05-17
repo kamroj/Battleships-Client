@@ -28,7 +28,7 @@ function createRoomList() {
 
         button.innerHTML = "Pokój: " + roomId;
         button.id = roomId;
-        button.className = `list`;
+        button.className = `ROOMS`;
         button.type = `list_enabled`;
 
         buttonDiv.appendChild(button);
@@ -39,7 +39,7 @@ function createRoomList() {
 const { remote } = require('electron')
 
 function loadRoomListeners() {
-    $('.list').click(function () {
+    $('.ROOMS').click(function () {
         let body = `playerId=${player.id()}&roomId=${this.id}`;
         console.log(body)
         communication.postUrlEncoded(`joinRoom`, body, result => {
