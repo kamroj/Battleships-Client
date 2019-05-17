@@ -57,7 +57,7 @@ module.exports = {
         markFire(position, isHit);
     }),
 
-    markOpponentShots : ((position, isHit) => {
+    markOpponent : ((position, isHit) => {
         markOpponentShots(position, isHit);
     })
 }
