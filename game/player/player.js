@@ -1,5 +1,6 @@
 const communication = require('../communication-server-client');
 const buttons = require('../buttons-helper');
+const myBoards = require('../board/board-marks')
 
 /**
  * Load id from local storage (browser memory), and if it doesn't exist, generate it randomly
@@ -10,12 +11,22 @@ if (id == null) {
     localStorage.setItem("id", id)
 }
 
+var askedOnceForSummaryAfterStartingTurn = false;
+
 /**
  * Ask server if it is my turn
  */
 function isMyTurn() {
     communication.get(`turn`, id, result => {
         buttons.disable('board_action_buttons', !result);
+        if (result && !askedOnceForSummaryAfterStartingTurn) {
+            communication.get("summary", id, result => {
+                result.shotResults.forEach(element => {
+                    myBoards.markOpponent(element.field, element.shotOutcome != "MISS")
+                });
+            })
+            askedOnceForSummaryAfterStartingTurn = true;
+        }
     })
 }
 
@@ -27,5 +38,8 @@ module.exports = {
     },
     refresh : () => {
         isMyTurn();
+    },
+    turnEnded : () => {
+        askedOnceForSummaryAfterStartingTurn = false;
     }
 }

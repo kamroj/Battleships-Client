@@ -21,9 +21,11 @@ function fire() {
     let request = {"playerID": player.id(), "field": field.chosenFieldToFire()};
 
     communication.post(`shot`, request, result => {
-        console.log("Wynik strzału" + result);
-        if(result.shotOutcome === 'MISS')
+        if(result.shotOutcome === 'MISS') {
             mark.fire(field.chosenFieldToFire(), false);
+            player.refresh();
+            player.turnEnded();
+        }
         else {
             mark.fire(field.chosenFieldToFire(), true);
             if (result.shotOutcome === 'SUNK' || result.shotOutcome === 'WIN') {
@@ -34,7 +36,6 @@ function fire() {
                 })
             }
         }
-        player.refresh();
     })
 }
 
