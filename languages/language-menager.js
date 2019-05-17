@@ -1,9 +1,8 @@
 const communication = require('../game/communication-server-client');
-
 const $ = require('jQuery');
 
-let avaibleLanguagesMap; //Map<skrót języka, nazwa języka>
-let languageMap; //Map<klucz, wartość>
+let avaibleLanguagesMap; //Will be used in Sprint 4
+let languageMap;
 
 let currentLanguage = `en`;
 

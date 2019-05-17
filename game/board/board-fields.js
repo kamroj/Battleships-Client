@@ -1,7 +1,5 @@
 //imports
 const $ = require('jQuery');
-const player = require('../player/player')
-const mark = require('./board-marks')
 
 const fieldsQuantity = 100;
 let chosenFieldToFire = 0;
@@ -19,9 +17,9 @@ $(document).ready(() => {
 })
 
 /**
-    * Generating active buttons on board where player shoots
-    * @fieldsQuantity - number of feelds 
-    */
+ * Generating active buttons on board where player shoots
+ * @fieldsQuantity - number of feelds 
+ */
 function createActiveBoard(fieldsQuantity) {
     for (i = 0; i < fieldsQuantity; i++) {
         let button = document.createElement("button");
@@ -37,9 +35,9 @@ function createActiveBoard(fieldsQuantity) {
 }
 
 /**
-     * Generating active buttons on board where player places ships
-     * @fieldsQuantity - number of feelds 
-     */
+ * Generating active buttons on board where player places ships
+ * @fieldsQuantity - number of feelds 
+ */
 function createPassiveBoard(fieldsQuantity) {
     for (i = 0; i < fieldsQuantity; i++) {
         let button = document.createElement("button");

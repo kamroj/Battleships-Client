@@ -34,6 +34,4 @@ function changeShipDirection() {
 
     ship.isHorizontally ? $('#TOGGLE_VERTICAL').prop('type', 'vertical_button_checked')
                     : $('#TOGGLE_VERTICAL').prop('type', 'board_buttons');
-                    
-    console.log(`Ship vertical:: ${ship.isHorizontally}`);
 }

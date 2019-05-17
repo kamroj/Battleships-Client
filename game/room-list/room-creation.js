@@ -2,6 +2,9 @@ const player = require('../player/player');
 const communication = require('../communication-server-client');
 const { remote } = require('electron')
 
+/**
+ * @RoomID will be used in sprint 4.
+ */
 let roomID;
 
 document.getElementById("MENU_NEW_GAME").onclick = () => {

@@ -18,6 +18,7 @@ var askedOnceForSummaryAfterStartingTurn = false;
  */
 function isMyTurn() {
     communication.get(`turn`, id, result => {
+        console.log(`My turn: ${result}`);
         buttons.disable('board_action_buttons', !result);
         if (result && !askedOnceForSummaryAfterStartingTurn) {
             communication.get("summary", id, result => {

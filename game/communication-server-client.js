@@ -1,14 +1,14 @@
 const $ = require('jQuery');
+const URL = 'http://localhost:7000';
 
 /**
  * Wrapper for http request - GET
- * @param {*} urlEnd - and of url address
- * @param {*} request - json data
- * @param {*} result - data received from server
+ * @param {String} urlEnd - and of url address
+ * @param {JSON} request - json data
+ * @param {JSON} result - data received from server
  */
 function doGet(urlEnd, request, result) {
-    $.get(`http://localhost:7000/${urlEnd}/${request}`, result)
-    //get(`http://10.30.1.116:7000/${urlEnd}/${request}`, result)
+    $.get(`${URL}/${urlEnd}/${request}`, result)
 }
 
 /**
@@ -17,10 +17,8 @@ function doGet(urlEnd, request, result) {
  * @param {*} result - data received from server
  */
 function doGetWithoutRequest(urlEnd, result) {
-    $.get(`http://localhost:7000/${urlEnd}`, result)
-    //get(`http://10.30.1.116:7000/${urlEnd}/`, result)
+    $.get(`${URL}/${urlEnd}`, result)
 }
-
 
 /**
  * Wrapper for http request - POST
@@ -30,8 +28,7 @@ function doGetWithoutRequest(urlEnd, result) {
  */
 function post(urlEnd, request, result) {
     $.ajax({
-        url:`http://localhost:7000/${urlEnd}`,
-        //url:`http://10.30.1.116:7000/${urlEnd}`,
+        url:`${URL}/${urlEnd}`,
         type:"POST",
         data:JSON.stringify(request),
         contentType:"application/json; charset=utf-8",
@@ -49,8 +46,7 @@ function post(urlEnd, request, result) {
  */
 function postUrlEncoded(urlEnd, request, result) {
     $.ajax({
-        url:`http://localhost:7000/${urlEnd}`,
-        //url:`http://10.30.1.116:7000/${urlEnd}`,
+        url:`${URL}/${urlEnd}`,
         type:"POST",
         data: request,
         contentType:'application/x-www-form-urlencoded',
@@ -75,6 +71,4 @@ module.exports = {
     postUrlEncoded : (urlEnd, request, result) => {
         postUrlEncoded(urlEnd, request, result)
     }
-
-    
 }
