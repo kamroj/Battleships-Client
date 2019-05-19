@@ -8,7 +8,14 @@ const URL = 'http://localhost:7000';
  * @param {JSON} result - data received from server
  */
 function doGet(urlEnd, request, result) {
-    $.get(`${URL}/${urlEnd}/${request}`, result)
+    // $.get(`${URL}/${urlEnd}/${request}`, result)
+    $.ajax({
+        url:`${URL}/${urlEnd}/${request}`,
+        type:"GET",
+        success: result,
+        async: false
+      
+    })
 }
 
 /**
@@ -33,7 +40,9 @@ function post(urlEnd, request, result) {
         data:JSON.stringify(request),
         contentType:"application/json; charset=utf-8",
         dataType:"json",
-        success: result
+        success: result,
+        async: false
+      
     })
 }
 
