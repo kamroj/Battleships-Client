@@ -24,10 +24,18 @@ function createRoomList() {
     roomsList.forEach(roomId => {
         let button = document.createElement("button");
         let buttonDiv = document.getElementById("sub_div_buttons_column");
+        let roomNameDiv = document.createElement("div");
+        let roomNumberDiv = document.createElement("div");
 
-        button.innerHTML = "Pokój: " + roomId;
+        roomNameDiv.className = "ROOMS";
+
+        roomNameDiv.innerHTML = `Room: `
+        roomNumberDiv.innerHTML = roomId;
+
+        button.appendChild(roomNameDiv);
+        button.appendChild(roomNumberDiv);
+
         button.id = roomId;
-        button.className = `ROOMS`;
         button.type = `list_enabled`;
 
         buttonDiv.appendChild(button);
