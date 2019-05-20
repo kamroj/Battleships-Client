@@ -34,6 +34,24 @@ function markFire(position, isHit) {
     });
 }
 
+/**
+ * Marks shots on opponent board.
+ * @param {Integer} index number of field
+ * @param {Boolean} isHit shot result
+ */
+function markOpponentShots(index, isHit) {
+    $('.fieldsPassive').ready(function() {
+        $(`#${index}`).attr("disabled", true);
+        if (isHit) {
+            $(`#${index}`).prop('type', 'fire_hit');
+            $(`#${index}`).html(`O`);
+        } else {
+            $(`#${index}`).prop('type', 'fire_miss');
+            $(`#${index}`).html(`X`);
+        }
+    });
+}
+
 module.exports = {
     ship : ((position, masts) => {
         markShip(position, masts);
@@ -41,5 +59,9 @@ module.exports = {
 
     fire : ((position, isHit) => {
         markFire(position, isHit);
+    }),
+
+    markOpponent : ((position, isHit) => {
+        markOpponentShots(position, isHit);
     })
 }

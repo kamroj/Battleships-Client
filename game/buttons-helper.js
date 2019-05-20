@@ -6,12 +6,12 @@ const $ = require('jQuery');
  * @param type - type of button group 
  * @param disable - disable or enable button group
  */
-function disableButtons(type, disable) {
-    $(`button[type='${type}'`).attr("disabled", disable);
+function disableButtons(className, disable) {
+    $(`button[class='${className}'`).attr("disabled", disable);
 }
 
 module.exports = {
-    disable : (type, disable) => {
-        disableButtons(type, disable)
+    disable : (className, disable) => {
+        disableButtons(className, disable)
     }
 }

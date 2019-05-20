@@ -1,29 +1,36 @@
-
 const communication = require('../communication-server-client');
 const buttons = require('../buttons-helper');
+const myBoards = require('../board/board-marks')
 
 /**
- * Generate randomly player id
+ * Load id from local storage (browser memory), and if it doesn't exist, generate it randomly
  */
-const id = Math.floor(Math.random() * 100000000);
+var id = localStorage.getItem("id");
+if (id == null) {
+    id = Math.floor(Math.random() * 100000000);
+    localStorage.setItem("id", id)
+}
 
-//do wywalenia
-let ships;
-
-// register yourself as a player on the server
-communication.post("/register", id, value => {
-    ships = value;
-});
+var askedOnceForSummaryAfterStartingTurn = false;
 
 /**
  * Ask server if it is my turn
  */
 function isMyTurn() {
     communication.get(`turn`, id, result => {
-        console.log(`Is my turn: ${result}`);
+        console.log(`My turn: ${result}`);
         buttons.disable('board_action_buttons', !result);
+        if (result && !askedOnceForSummaryAfterStartingTurn) {
+            communication.get("summary", id, result => {
+                result.shotResults.forEach(element => {
+                    myBoards.markOpponent(element.field, element.shotOutcome != "MISS")
+                });
+            })
+            askedOnceForSummaryAfterStartingTurn = true;
+        }
     })
 }
+
 setInterval(isMyTurn, 3000);
 
 module.exports = {
@@ -33,7 +40,7 @@ module.exports = {
     refresh : () => {
         isMyTurn();
     },
-    getShips : () => {
-        return ships;
+    turnEnded : () => {
+        askedOnceForSummaryAfterStartingTurn = false;
     }
 }

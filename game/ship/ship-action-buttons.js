@@ -1,19 +1,37 @@
 //imports
-const c = require('./ship-class')
+const $ = require('jQuery');
+const c = require('./ship-class');
 
 let ship = c.Ship();
 
-document.getElementById('button_ship_3_mast').onclick = () => {
-    ship.lenght =  3;
+
+document.getElementById('SHIP_4_MAST').onclick = () => {
+    ship.lenght =  4;
     console.log(`Ship selected:: ${ship.lenght} masts`);
 }
 
-document.getElementById('button_ship_4_mast').onclick = () => {
-    ship.lenght = 4;
+document.getElementById('SHIP_3_MAST').onclick = () => {
+    ship.lenght = 3;
     console.log(`Ship selected:: ${ship.lenght} masts`);
 }
 
-document.getElementById('button_ship_vertical').onclick = () => {
-    ship.isVertical = ship.isVertical === false ? true : false;
-    console.log(`Ship vertical:: ${ship.isVertical}`);
+document.getElementById('SHIP_2_MAST').onclick = () => {
+    ship.lenght = 2;
+    console.log(`Ship selected:: ${ship.lenght} masts`);
+}
+
+document.getElementById('SHIP_1_MAST').onclick = () => {
+    ship.lenght = 1;
+    console.log(`Ship selected:: ${ship.lenght} masts`);
+}
+
+document.getElementById('TOGGLE_VERTICAL').onclick = () => {
+    changeShipDirection();
+}
+
+function changeShipDirection() {
+    ship.isHorizontally = ship.isHorizontally === false ? true : false;
+
+    ship.isHorizontally ? $('#TOGGLE_VERTICAL').prop('type', 'vertical_button_checked')
+                    : $('#TOGGLE_VERTICAL').prop('type', 'board_buttons');
 }

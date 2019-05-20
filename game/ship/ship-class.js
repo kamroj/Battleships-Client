@@ -1,7 +1,7 @@
 class Ship {
     constructor() {
         this.lenght,
-        this.isVertical = false,
+        this.isHorizontally = false,
         this.fieldNumber
     }
 }
