@@ -6,9 +6,24 @@ body
 
 #main_div
 {
-    float: left;
     height: 100%;
     width: 100%;
+}
+
+#upper_div_options
+{
+    height: 20%;
+    flex: 0 0 auto;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+#game_div
+{
+    height: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
