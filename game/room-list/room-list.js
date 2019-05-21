@@ -10,7 +10,7 @@ getRoomsList();
 setTimeout(() => {
     createRoomList()
     loadRoomListeners();
-}, 1)
+}, 10)
 
 
 function getRoomsList() {
@@ -28,8 +28,9 @@ function createRoomList() {
         let roomNumberDiv = document.createElement("div");
 
         roomNameDiv.className = "ROOMS";
-
         roomNameDiv.innerHTML = `Room: `
+
+        roomNumberDiv.className = 'ROOMS_NUMBERS';
         roomNumberDiv.innerHTML = roomId;
 
         button.appendChild(roomNameDiv);
@@ -43,8 +44,8 @@ function createRoomList() {
 };
 
 function loadRoomListeners() {
-    $('.ROOMS').click(function () {
-        let body = `playerId=${player.id()}&roomId=${this.id}`;
+    $('.ROOMS_NUMBERS').click(function() {
+        let body = `playerId=${player.id()}&roomId=${this.innerHTML}`;
         communication.postUrlEncoded(`joinRoom`, body, result => {
             remote.getCurrentWindow().loadFile('game/game.html')
         })
