@@ -7,22 +7,25 @@ let currentLanguage;
 
 document.getElementById(`CHANGE_LANGUAGE`).onclick = () => {
     currentLanguage = getLanguageFromLocalStorage();
-    console.log("Blee ");
-    console.log(currentLanguage);
+    console.log("klucz");
+    console.log(Object.keys(avaibleLanguagesMap)[0]);
+    var wartosc = avaibleLanguagesMap.EN;
+    console.log("wartosc");
+    console.log(wartosc);
     currentLanguage = currentLanguage === `en` ? `pl` : `en`;
     setLanguageInLocalStorage(currentLanguage);
     setLanguage(getLanguageFromLocalStorage());
-    console.log("Blee 2");
-    console.log(currentLanguage);
+}
+
+document.getElementById(`LANGUAGE_COMBO_BOX`).onclick = () => {
+    currentLanguage = $("#LANGUAGE_COMBO_BOX :selected").val();
+    setLanguageInLocalStorage(currentLanguage);
+    setLanguage(getLanguageFromLocalStorage());
 }
 
 function getAvaibleLanguages() {
-      
     communication.get(`language`, "", result => {
-        console.log("getAvaibleLanguages");
         avaibleLanguagesMap = result;
-        console.log(avaibleLanguagesMap);
-    
     })
 }
 
@@ -44,28 +47,22 @@ function getLanguageFromLocalStorage(){
    return localStorage.getItem("currentLanguage");
 }
 
-function domek(){
-    var json = {EN: "English", PL: "Polski"};
-    console.log("DOMEK");
-    console.log(avaibleLanguagesMap);
-      
-        var select = $("<select></select>").attr("id", "languageComboBox").attr("name", "language");
+function displayLanguageComboBox(){
+        var select = $("<select></select>").attr("type", "menu_enabled").attr("id", "LANGUAGE_COMBO_BOX").attr("name", "language");
         $.each(avaibleLanguagesMap,function(value, text){
             select.append($("<option></option>").attr("value", value).text(text));
         });     
-        $("#container").html(select);
-   
-   
-    
+        $("#LANGUAGE_COMBO_BOX").html(select);
  }
 
 $(document).ready(() => {
     var url = window.location.pathname;
     var filename = url.substring(url.lastIndexOf('/')+1);
     if (filename === "room-list.html"){
-         setLanguageInLocalStorage(`en`);
+        currentLanguage = 'en';
+         setLanguageInLocalStorage(currentLanguage);
     }
         getAvaibleLanguages();
         setLanguage(getLanguageFromLocalStorage());
-        domek();
+        displayLanguageComboBox();
 });

@@ -36,7 +36,7 @@ body
     width: 100%;
 }
 
-button,
+select,option,button,
 [type="menu_enabled"]
 {
     outline: none;
