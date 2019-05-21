@@ -64,3 +64,19 @@ function placeShip() {
         })
     });
 }
+
+document.getElementById('GENERATE_SHIPS').onclick = () => {
+    generateShips();
+}
+
+function generateShips() {
+    communication.get(`placeShipsRandomly`, player.id(), ships =>{
+        console.log(ships)
+        ships.forEach(ship => {
+            ship.shotDownFields.forEach(field => {
+                console.log(field)
+                mark.ship(field, ship.shotDownFields.length);
+            });
+        })
+    });
+}
