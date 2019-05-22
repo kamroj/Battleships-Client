@@ -18,11 +18,12 @@ body
 
 #sub_div_buttons_in_row
 {
+    display:flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-start;
     margin-bottom: 100px;
-    height: 50%;
+    height: 10%;
     width: 100%;
 }
 
