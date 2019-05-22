@@ -20,6 +20,10 @@ function doGetWithoutRequest(urlEnd, result) {
     $.get(`${URL}/${urlEnd}`, result)
 }
 
+function doGetChat(urlEnd, gameId, playerId, language, result) {
+    
+}
+
 /**
  * Wrapper for http request - POST
  * @param {*} urlEnd - and of url address
