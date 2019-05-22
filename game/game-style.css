@@ -12,22 +12,20 @@ body
 
 #upper_div_options
 {
+    display: flex;
     height: 20%;
-    flex: 0 0 auto;
     color: white;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     text-align: center;
 }
-
 
 #game_div
 {
     height: 80%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    text-align: center;
 }
 
 #sub_div_active_board,
@@ -36,13 +34,45 @@ body
     flex: 0 0 auto;
     height: 650px;
     width: 650px;
+    text-align: center;
+}
+
+#chat_div
+{
+    height: 650px;
+    width: 300px;
+    border: 2px solid rgba(65, 39, 136, 0.747);
+}
+#chat_box
+{
+    color: white;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    display: flex;
+    height: 90%;
+}
+
+[type="chat_active"]
+{
+    height: 5%;
+    margin: 0%;
+    width: 100%;
+}
+
+input[type=text] 
+{
+    width: 100%;
+    height: 5%;
+    box-sizing: border-box;
 }
 
 #sub_div_action_buttons
 {
     flex: 0 0 auto;
-    height: 650px;
-    width: 300px;
+    min-height: 350px;
+    min-width: 300px;
 }
 
 #sub_div_action_buttons_splited
@@ -116,4 +146,18 @@ button:hover:enabled
 {
     background: #003d99;    
     cursor: pointer;
+}
+
+button:hover::before:enabled
+{
+    transform: translateX(300px) skewX(-15deg);
+    opacity: 0.6;
+    transition: .7s;
+}
+
+button:hover::after:enabled
+{
+    transform: translateX(300px) skewX(-15deg);
+    opacity: .6s;
+    transition: .7s;
 }
