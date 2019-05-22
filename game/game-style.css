@@ -117,17 +117,3 @@ button:hover:enabled
     background: #003d99;    
     cursor: pointer;
 }
-
-button:hover::before:enabled
-{
-    transform: translateX(300px) skewX(-15deg);
-    opacity: 0.6;
-    transition: .7s;
-}
-
-button:hover::after:enabled
-{
-    transform: translateX(300px) skewX(-15deg);
-    opacity: .6s;
-    transition: .7s;
-}
