@@ -21,7 +21,7 @@ function doGetWithoutRequest(urlEnd, result) {
 }
 
 function doGetChat(urlEnd, gameId, playerId, language, result) {
-    
+    $.get(`${URL}/${urlEnd}/${gameId}/${playerId}/${language}`, result)
 }
 
 /**
@@ -61,7 +61,7 @@ function postUrlEncoded(urlEnd, request, result) {
 
 module.exports = {
     post : (urlEnd, request, result) => {
-        post(urlEnd, request, result);
+        post(urlEnd, request, result)
     },
 
     get : (urlEnd, request, result) => {
@@ -70,6 +70,10 @@ module.exports = {
 
     getWithoutRequest : (urlEnd, result) => {
         doGetWithoutRequest(urlEnd, result)
+    },
+
+    getChatRequest : (urlEnd, gameId, playerId, language, result) => {
+        doGetChat(urlEnd, gameId, playerId, language, result)
     },
 
     postUrlEncoded : (urlEnd, request, result) => {

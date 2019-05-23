@@ -11,7 +11,7 @@ document.getElementById('SEND_MESSAGE').onclick = () => {
 function getText() {
     let body = { "playerId": player.id(), "gameId": localStorage.getItem("gameId"), "textMessage": textbox.value, "language": "pl" };
     communication.post('chat', body, request => {
-        console.log(request);
+        //console.log(request);
     })
     textbox.value = "";
 }

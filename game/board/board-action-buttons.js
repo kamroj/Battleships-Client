@@ -16,7 +16,7 @@ document.getElementById('SHOT').onclick = () => {
   * Mark field according to shot outcome result. 
   */
 function fire() {
-    let request = {"playerID": player.id(), "field": field.chosenFieldToFire()};
+    let request = {"playerId": player.id(), "field": field.chosenFieldToFire(), "gameId": localStorage.getItem('gameId')};
 
     communication.post(`shot`, request, result => {
         if(result.shotOutcome === 'MISS') {

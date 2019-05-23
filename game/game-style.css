@@ -39,12 +39,14 @@ body {
 
 #chat_box {
     color: white;
+    font-size: 2vh;
     flex-direction: column-reverse;
     justify-content: flex-start;
     word-wrap: break-word;
     white-space: pre-wrap;
     display: flex;
     height: 90%;
+    overflow: auto;
 }
 
 [type="chat_active"] {
