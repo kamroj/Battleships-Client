@@ -77,7 +77,9 @@ function reloadListenerToButtons() {
 
 module.exports = {
     chosenFieldToFire: () => {
-        return Number(chosenFieldToFire) - 1
+        let number = Number(chosenFieldToFire) - 1;
+        chosenFieldToFire = -1;
+        return number
     },
 
     chosenFieldToPlaceShip: () => {

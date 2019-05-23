@@ -3,7 +3,7 @@ const field = require('./board-fields');
 const c = require('../ship/ship-class');
 const mark = require('./board-marks');
 const communication = require('../communication-server-client');
-const player =  require('../player/player');
+const player = require('../player/player');
 
 let ship = c.Ship();
 
@@ -12,20 +12,20 @@ document.getElementById('SHOT').onclick = () => {
 };
 
 /**
-  * Send request to server about chosen field being fired.
-  * Mark field according to shot outcome result. 
-  */
+ * Send request to server about chosen field being fired.
+ * Mark field according to shot outcome result. 
+ */
 function fire() {
-    let request = {"playerId": player.id(), "field": field.chosenFieldToFire(), "gameId": localStorage.getItem('gameId')};
+    let fieldIndex = field.chosenFieldToFire();
+    let request = { "playerId": player.id(), "field": fieldIndex, "gameId": localStorage.getItem('gameId') };
 
     communication.post(`shot`, request, result => {
-        if(result.shotOutcome === 'MISS') {
-            mark.fire(field.chosenFieldToFire(), false);
+        if (result.shotOutcome === 'MISS') {
+            mark.fire(fieldIndex, false);
             player.refresh();
             player.turnEnded();
-        }
-        else {
-            mark.fire(field.chosenFieldToFire(), true);
+        } else {
+            mark.fire(fieldIndex, true);
             checkIfShotIsSunkOrWin(result.shotOutcome);
         }
     })
@@ -33,7 +33,7 @@ function fire() {
 
 function checkIfShotIsSunkOrWin(shotOutcome) {
     if (shotOutcome === 'SUNK' || shotOutcome === 'WIN') {
-      generateMissesAroundShip();  
+        generateMissesAroundShip();
     }
 }
 
@@ -51,14 +51,14 @@ document.getElementById('PLACE_SHIP').onclick = () => {
 
 
 /**
-  * Send request to server about chosen fields
-  * where ship is going to be placed.
-  */
+ * Send request to server about chosen fields
+ * where ship is going to be placed.
+ */
 function placeShip() {
     ship.fieldNumber = field.chosenFieldToPlaceShip();
-    let request = {"playerID": player.id(), "field": ship.fieldNumber, "shipLength": ship.lenght,"isHorizontally": ship.isHorizontally};
+    let request = { "playerID": player.id(), "field": ship.fieldNumber, "shipLength": ship.lenght, "isHorizontally": ship.isHorizontally };
 
-    communication.post(`placeShip`, request, shipFields =>{
+    communication.post(`placeShip`, request, shipFields => {
         shipFields.shotDownFields.forEach(field => {
             mark.ship(field, ship.lenght);
         })
@@ -70,7 +70,7 @@ document.getElementById('GENERATE_SHIPS').onclick = () => {
 }
 
 function generateShips() {
-    communication.get(`placeShipsRandomly`, player.id(), ships =>{
+    communication.get(`placeShipsRandomly`, player.id(), ships => {
         console.log(ships)
         ships.forEach(ship => {
             ship.shotDownFields.forEach(field => {
