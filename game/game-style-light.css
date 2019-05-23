@@ -1,5 +1,9 @@
 @import url("game-style.css");
 
+#chat_box {
+    color: black;
+}
+
 body
 {
     background: #e0dfdf;
