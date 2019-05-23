@@ -52,3 +52,7 @@ function loadRoomListeners() {
         })
     });
 }
+
+document.getElementById("MENU_REFRESH").onclick = () => {
+    location.reload(getRoomsList());
+}

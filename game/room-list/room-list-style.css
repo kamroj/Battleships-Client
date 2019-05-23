@@ -48,6 +48,15 @@ button,
     overflow: hidden;
 }
 
+#sub_div_buttons_column {
+    margin: 100px 0px;
+}
+
+#sub_div_buttons_column>button {
+    /* All buttons in sub_div_buttons_column div*/
+    height: 20%;
+}
+
 [type="list_enabled"] {
     width: 100%;
 }
