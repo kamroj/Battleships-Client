@@ -23,42 +23,37 @@ function getRoomsList() {
 }
 
 function createRoomList() {
-    if( typeof roomsList !== "undefined"){
+    if (typeof roomsList !== "undefined") {
         roomsList.forEach(
             roomId => {
-                if (typeof roomId !== null){
-            let button = document.createElement("button");
-            let buttonDiv = document.getElementById("sub_div_buttons_column");
-            let roomNameDiv = document.createElement("div");
-            let roomNumberDiv = document.createElement("div");
+                if (typeof roomId !== null) {
+                    let button = document.createElement("button");
+                    let buttonDiv = document.getElementById("sub_div_buttons_column");
+                    let roomNameDiv = document.createElement("div");
+                    let roomNumberDiv = document.createElement("div");
 
-            button.className = 'ROOMS_BUTTON'
+                    button.className = 'ROOMS_BUTTON'
 
-<<<<<<< Updated upstream
-            roomNameDiv.className = "ROOMS";
-            roomNameDiv.innerHTML = `Room: `
-=======
-        roomNameDiv.className = "ROOM";
-        roomNameDiv.innerHTML = `Room: `
->>>>>>> Stashed changes
+                    roomNameDiv.className = "ROOM";
+                    roomNameDiv.innerHTML = `Room: `
 
-            roomNumberDiv.className = 'ROOMS_NUMBERS';
-            roomNumberDiv.innerHTML = roomId;
+                    roomNumberDiv.className = 'ROOMS_NUMBERS';
+                    roomNumberDiv.innerHTML = roomId;
 
-            button.appendChild(roomNameDiv);
-            button.appendChild(roomNumberDiv);
+                    button.appendChild(roomNameDiv);
+                    button.appendChild(roomNumberDiv);
 
-            button.id = roomId;
-            button.type = `list_enabled`;
+                    button.id = roomId;
+                    button.type = `list_enabled`;
 
-            buttonDiv.appendChild(button);
+                    buttonDiv.appendChild(button);
                 }
-        })
+            })
     }
 };
 
 function loadRoomListeners() {
-    $('.ROOMS_BUTTON').click(function() {
+    $('.ROOMS_BUTTON').click(function () {
         const childWithRoomIdIndex = 1;
         let gameId = this.childNodes[childWithRoomIdIndex].innerHTML
         let body = `playerId=${player.id()}&roomId=${gameId}`;
