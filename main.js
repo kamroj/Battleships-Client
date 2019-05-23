@@ -17,6 +17,7 @@ function createWindow() {
   });
 
   mainWindow.loadFile("game/room-list/room-list.html");
+  //mainWindow.loadFile("game/game.html");
   mainWindow.webContents.openDevTools();
 
   /**

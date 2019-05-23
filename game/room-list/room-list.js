@@ -45,6 +45,7 @@ function createRoomList() {
 
 function loadRoomListeners() {
     $('.ROOMS_NUMBERS').click(function() {
+        localStorage.setItem("gameId", this.innerHTML);
         let body = `playerId=${player.id()}&roomId=${this.innerHTML}`;
         communication.postUrlEncoded(`joinRoom`, body, result => {
             remote.getCurrentWindow().loadFile('game/game.html')

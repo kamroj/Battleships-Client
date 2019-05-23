@@ -12,5 +12,6 @@ document.getElementById("MENU_NEW_GAME").onclick = () => {
         roomID = result;
         remote.getCurrentWindow().loadFile('game/game.html')
         console.log(`Room id: ${roomID}`)
+        localStorage.setItem("gameId", roomID);
     })
 }
