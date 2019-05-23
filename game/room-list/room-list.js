@@ -27,6 +27,8 @@ function createRoomList() {
         let roomNameDiv = document.createElement("div");
         let roomNumberDiv = document.createElement("div");
 
+        button.className = 'ROOMS_BUTTON'
+
         roomNameDiv.className = "ROOMS";
         roomNameDiv.innerHTML = `Room: `
 
@@ -44,12 +46,15 @@ function createRoomList() {
 };
 
 function loadRoomListeners() {
-    $('.ROOMS_NUMBERS').click(function() {
-        localStorage.setItem("gameId", this.innerHTML);
-        let body = `playerId=${player.id()}&roomId=${this.innerHTML}`;
+    $('.ROOMS_BUTTON').click(function () {
+        const childWithRoomIdIndex = 1;
+        let gameId = this.childNodes[childWithRoomIdIndex].innerHTML
+        let body = `playerId=${player.id()}&roomId=${gameId}`;
+
+        localStorage.setItem("gameId", gameId);
         communication.postUrlEncoded(`joinRoom`, body, result => {
             remote.getCurrentWindow().loadFile('game/game.html')
-        })
+        });
     });
 }
 
