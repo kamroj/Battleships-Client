@@ -7,6 +7,10 @@ const myBoards = require('../board/board-marks')
  */
 var id = localStorage.getItem("id");
 if (id == null) {
+    generateRandomId();
+}
+
+function generateRandomId() {
     id = Math.floor(Math.random() * 100000000);
     localStorage.setItem("id", id)
 }
@@ -45,5 +49,8 @@ module.exports = {
     },
     stopCheckingTurn: () => {
         clearInterval(interval);
+    },
+    resetId: () => {
+        generateRandomId();
     }
 }

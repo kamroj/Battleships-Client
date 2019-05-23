@@ -8,6 +8,7 @@ document.getElementById('MENU_PLAY_VERSUS_AI').onclick = () => {
 
 function startPlayingAgainstAi() {
     communication.post('playVersusAi', player.id(), result => {
+        localStorage.setItem("gameId", result);
         remote.getCurrentWindow().loadFile('game/game.html');
     })
 }

@@ -8,6 +8,7 @@ let roomsList;
 getRoomsList();
 
 setTimeout(() => {
+    resetPlayerIdAndGameRoom();
     createRoomList()
     loadRoomListeners();
 }, 10)
@@ -56,6 +57,11 @@ function loadRoomListeners() {
             remote.getCurrentWindow().loadFile('game/game.html')
         });
     });
+}
+
+function resetPlayerIdAndGameRoom() {
+    player.resetId();
+    localStorage.setItem("gameId", null);
 }
 
 document.getElementById("MENU_REFRESH").onclick = () => {
