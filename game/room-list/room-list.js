@@ -11,7 +11,7 @@ setTimeout(() => {
     resetPlayerIdAndGameRoom();
     createRoomList()
     loadRoomListeners();
-}, 10)
+}, 20)
 
 
 function getRoomsList() {
@@ -22,8 +22,10 @@ function getRoomsList() {
 }
 
 function createRoomList() {
-    if( roomsList != "undefined"){
-        roomsList.forEach(roomId => {
+    if( typeof roomsList !== "undefined"){
+        roomsList.forEach(
+            roomId => {
+                if (typeof roomId !== null){
             let button = document.createElement("button");
             let buttonDiv = document.getElementById("sub_div_buttons_column");
             let roomNameDiv = document.createElement("div");
@@ -44,6 +46,7 @@ function createRoomList() {
             button.type = `list_enabled`;
 
             buttonDiv.appendChild(button);
+                }
         })
     }
 };
