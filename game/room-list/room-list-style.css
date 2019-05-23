@@ -1,6 +1,7 @@
 body {
     height: 100vh;
     background: #151519;
+    transition: 2s;
 }
 
 #main_div {
