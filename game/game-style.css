@@ -148,6 +148,5 @@ button,
 
 button:hover:enabled {
     background: #003d99;
-}
     cursor: pointer;
 }
