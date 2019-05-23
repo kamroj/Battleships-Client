@@ -31,16 +31,19 @@ function isMyTurn() {
     })
 }
 
-setInterval(isMyTurn, 3000);
+let interval = setInterval(isMyTurn, 3000);
 
 module.exports = {
-    id : () => {
+    id: () => {
         return id;
     },
-    refresh : () => {
+    refresh: () => {
         isMyTurn();
     },
-    turnEnded : () => {
+    turnEnded: () => {
         askedOnceForSummaryAfterStartingTurn = false;
+    },
+    stopCheckingTurn: () => {
+        clearInterval(interval);
     }
 }

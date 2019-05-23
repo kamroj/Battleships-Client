@@ -25,15 +25,18 @@ body {
 
 #sub_div_active_board,
 #sub_div_passive_board {
-    flex: 0 0 auto;
-    height: 650px;
-    width: 650px;
+    height: 80%;
+    width: 35%;
     text-align: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 #chat_div {
-    height: 650px;
-    width: 300px;
+    height: 80%;
+    width: 30%;
     border: 2px solid rgba(65, 39, 136, 0.747);
 }
 
@@ -75,8 +78,8 @@ input[type=text] {
 
 #ship_div,
 #action_buttons_div {
-    height: 100%;
-    width: 50%;
+    height: 50%;
+    width: 30%;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -89,17 +92,17 @@ input[type=text] {
 #action_buttons_div>button {
     height: 50%;
     width: 30%;
-    margin: 0%;
+    margin: 1%;
 }
 
 button,
 [type="enabled"] {
     background: rgba(54, 54, 65, 0.933);
     color: rgb(255, 255, 255);
-    width: 60px;
-    height: 60px;
+    width: 9%;
+    height: 9%;
     border: 3px solid #3c4775;
-    font-size: 15px;
+    font-size: 100%;
     transition: .6s;
     margin-bottom: 2px;
     margin-left: 2px;

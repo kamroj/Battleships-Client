@@ -1,6 +1,7 @@
 const communication = require('../communication-server-client');
+const buttons = require('../buttons-helper');
+const player = require('../player/player');
 
-let messages;
 let chatBoxDiv = document.getElementById('chat_box');
 
 function refreshChat() {
@@ -8,9 +9,12 @@ function refreshChat() {
         chatBoxDiv.innerText = '';
         messages.forEach(message => {
             chatBoxDiv.innerText += `${message}\n`
+            if (message.startsWith("[SERVER]: ~~~")) { // Special code sent from server indicating that game has ended
+                player.stopCheckingTurn();
+                buttons.disableAllButSendMessage();
+            }
         })
     })
 }
 
 setInterval(refreshChat, 1000);
-
