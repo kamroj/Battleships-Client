@@ -1,12 +1,9 @@
-body
-{
+body {
     height: 100vh;
     background: #151519;
 }
 
-#main_div
-{
-    float: left;
+#main_div {
     height: 100%;
     width: 100%;
     display: flex;
@@ -16,19 +13,16 @@ body
     text-align: center;
 }
 
-#sub_div_buttons_in_row
-{
-    display:flex;
+#sub_div_buttons_in_row {
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-start;
-    margin-bottom: 100px;
     height: 10%;
     width: 100%;
 }
 
-#sub_div_buttons_column
-{
+#sub_div_buttons_column {
     flex-direction: column;
     justify-content: flex-start;
     align-content: center;
@@ -38,30 +32,27 @@ body
 }
 
 button,
-[type="menu_enabled"]
-{
+[type="menu_enabled"] {
     outline: none;
     top: 50%;
     left: 50%;
-    background:  rgba(54, 54, 65, 0.933);
+    background: rgba(54, 54, 65, 0.933);
     color: rgb(255, 255, 255);
     width: 20%;
-    height: 60px;
+    height: 100%;
     border: 3px solid #3c4775;
-    font-size: 15px;
+    font-size: 2vh;
     transition: .6s;
     margin-bottom: 2px;
     margin-left: 2px;
     overflow: hidden;
 }
 
-[type="list_enabled"]
-{
+[type="list_enabled"] {
     width: 100%;
 }
 
-button:hover:enabled
-{
-    background: #003d99;    
+button:hover:enabled {
+    background: #003d99;
     cursor: pointer;
 }
