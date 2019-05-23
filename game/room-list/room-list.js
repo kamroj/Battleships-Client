@@ -2,6 +2,7 @@ const $ = require('jQuery');
 const player = require('../player/player');
 const communication = require('../communication-server-client');
 const { remote } = require('electron')
+const language = require('../../languages/language-menager');
 
 let roomsList;
 
@@ -33,8 +34,13 @@ function createRoomList() {
 
             button.className = 'ROOMS_BUTTON'
 
+<<<<<<< Updated upstream
             roomNameDiv.className = "ROOMS";
             roomNameDiv.innerHTML = `Room: `
+=======
+        roomNameDiv.className = "ROOM";
+        roomNameDiv.innerHTML = `Room: `
+>>>>>>> Stashed changes
 
             roomNumberDiv.className = 'ROOMS_NUMBERS';
             roomNumberDiv.innerHTML = roomId;

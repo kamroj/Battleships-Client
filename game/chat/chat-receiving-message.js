@@ -5,7 +5,7 @@ const player = require('../player/player');
 let chatBoxDiv = document.getElementById('chat_box');
 
 function refreshChat() {
-    communication.getChatRequest('chat', localStorage.getItem('gameId'), localStorage.getItem('id'), 'pl', messages => {
+    communication.getChatRequest('chat', localStorage.getItem('gameId'), localStorage.getItem('id'), localStorage.getItem("currentLanguage"), messages => {
         chatBoxDiv.innerText = '';
         messages.forEach(message => {
             chatBoxDiv.innerText += `${message}\n`

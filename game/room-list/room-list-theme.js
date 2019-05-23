@@ -3,7 +3,7 @@ const $ = require('jQuery');
 
 let isDarkTheme = true;
 
-document.getElementById(`MENU_CHANGE_COLOR`).onclick = () => {
+document.getElementById(`CHANGE_COLOR`).onclick = () => {
     changeTheme();
 }
 
