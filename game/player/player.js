@@ -25,22 +25,35 @@ var askedOnceForSummaryAfterStartingTurn = false;
  */
 function isMyTurn() {
     communication.get2Params(`turn`, id, localStorage.getItem("gameId"), result => {
+        console.log(id)
+        console.log(localStorage.getItem("gameId"));
+        console.log(result)
+        if(result === '')
+            return;
+
         console.log(`My turn: ${result}`);
         buttons.disable('board_action_buttons', !result);
-        if (result && !askedOnceForSummaryAfterStartingTurn) {
-            communication.get("summary", id, result => {
-                result.shotResults.forEach(element => {
-                    myBoards.markOpponent(element.field, element.shotOutcome != "MISS")
-                });
-            })
-            askedOnceForSummaryAfterStartingTurn = true;
-        }
+        askForSummaryIfRequired(result);
     })
 }
 
-//let interval = setInterval(isMyTurn, 3000);
+function askForSummaryIfRequired(result) {
+    if (result && !askedOnceForSummaryAfterStartingTurn) {
+        communication.get("summary", id, result => {
+            try {
+                result.shotResults.forEach(element => {
+                    myBoards.markOpponent(element.field, element.shotOutcome != "MISS")
+                });
+            } catch (err) {
+                console.log('No summary shots from opponent yet!');
+            }
+        })
+        askedOnceForSummaryAfterStartingTurn = true;
+    }
+}
+
 if (currentPage === 'game.html') {
-    setInterval(isMyTurn, 3000);
+    var interval = setInterval(isMyTurn, 3000);
 }
 
 module.exports = {

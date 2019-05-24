@@ -11,7 +11,6 @@ document.getElementById("MENU_NEW_GAME").onclick = () => {
     communication.post(`createRoom`, player.id(), result => {
         roomID = result;
         remote.getCurrentWindow().loadFile('game/game.html')
-        console.log(`Room id: ${roomID}`)
         localStorage.setItem("gameId", roomID);
     })
 }
