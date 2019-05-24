@@ -1,12 +1,10 @@
-//imports
 const $ = require('jQuery');
 const c = require('./ship-class');
 
 let ship = c.Ship();
 
-
 document.getElementById('SHIP_4_MAST').onclick = () => {
-    ship.lenght =  4;
+    ship.lenght = 4;
     console.log(`Ship selected:: ${ship.lenght} masts`);
 }
 
@@ -31,7 +29,6 @@ document.getElementById('TOGGLE_VERTICAL').onclick = () => {
 
 function changeShipDirection() {
     ship.isHorizontally = ship.isHorizontally === false ? true : false;
-
     ship.isHorizontally ? $('#TOGGLE_VERTICAL').prop('type', 'vertical_button_checked')
-                    : $('#TOGGLE_VERTICAL').prop('type', 'board_buttons');
+        : $('#TOGGLE_VERTICAL').prop('type', 'board_buttons');
 }

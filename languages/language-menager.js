@@ -13,6 +13,12 @@ document.getElementById(`CHANGE_LANGUAGE`).onclick = () => {
     setLanguage(localStorage.getItem("currentLanguage"));
 }
 
+/**
+ * Changes dynamically innerhtml in elements with IDs and Classes 
+ * that are equals to keys received from server.
+ * 
+ * @param {String} language - current language
+ */
 function setLanguage(language) {
     communication.get(`language`, language, result => {
         for (var key in result) {

@@ -9,13 +9,11 @@ document.getElementById('SEND_MESSAGE').onclick = () => {
 }
 
 $(document).ready(function () {
-
     $('#textbox').keypress(function (e) {
         if (e.which == 13) {
             sendText();
         }
     });
-    
 });
 
 function sendText() {
@@ -25,8 +23,6 @@ function sendText() {
 
 function getText() {
     let body = { "playerId": player.id(), "gameId": localStorage.getItem("gameId"), "textMessage": textbox.value, "language": "pl" };
-    communication.post('chat', body, request => {
-        //console.log(request);
-    })
+    communication.post('chat', body, request => {});
     textbox.value = "";
 }

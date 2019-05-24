@@ -29,7 +29,7 @@
     "xmlhttprequest": "^1.8.0"
   },
   "build": {
-    "appId": "asd",
+    "appId": "app",
     "linux": {
       "target": [
         "deb",

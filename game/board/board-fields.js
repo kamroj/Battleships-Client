@@ -1,4 +1,3 @@
-//imports
 const $ = require('jQuery');
 
 const fieldsQuantity = 100;

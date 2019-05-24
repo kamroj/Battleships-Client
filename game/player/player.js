@@ -21,17 +21,12 @@ function generateRandomId() {
 var askedOnceForSummaryAfterStartingTurn = false;
 
 /**
- * Ask server if it is my turn
+ * Ask server if it is my turn - if so send request for opponent shots summary.
  */
 function isMyTurn() {
     communication.get2Params(`turn`, id, localStorage.getItem("gameId"), result => {
-        console.log(id)
-        console.log(localStorage.getItem("gameId"));
-        console.log(result)
         if(result === '')
             return;
-
-        console.log(`My turn: ${result}`);
         buttons.disable('board_action_buttons', !result);
         askForSummaryIfRequired(result);
     })

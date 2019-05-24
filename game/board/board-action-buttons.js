@@ -71,10 +71,8 @@ document.getElementById('GENERATE_SHIPS').onclick = () => {
 
 function generateShips() {
     communication.get(`placeShipsRandomly`, player.id(), ships => {
-        console.log(ships)
         ships.forEach(ship => {
             ship.shotDownFields.forEach(field => {
-                console.log(field)
                 mark.ship(field, ship.shotDownFields.length);
             });
         })

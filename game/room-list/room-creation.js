@@ -2,14 +2,8 @@ const player = require('../player/player');
 const communication = require('../communication-server-client');
 const { remote } = require('electron')
 
-/**
- * @RoomID will be used in sprint 4.
- */
-let roomID;
-
 document.getElementById("MENU_NEW_GAME").onclick = () => {
-    communication.post(`createRoom`, player.id(), result => {
-        roomID = result;
+    communication.post(`createRoom`, player.id(), roomID => {
         remote.getCurrentWindow().loadFile('game/game.html')
         localStorage.setItem("gameId", roomID);
     })
