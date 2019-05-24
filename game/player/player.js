@@ -21,7 +21,7 @@ var askedOnceForSummaryAfterStartingTurn = false;
  * Ask server if it is my turn
  */
 function isMyTurn() {
-    communication.get(`turn`, id, result => {
+    communication.get2Params(`turn`, id, localStorage.getItem("gameId"), result => {
         console.log(`My turn: ${result}`);
         buttons.disable('board_action_buttons', !result);
         if (result && !askedOnceForSummaryAfterStartingTurn) {
