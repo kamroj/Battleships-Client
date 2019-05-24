@@ -35,7 +35,7 @@ function createRoomList() {
                     button.className = 'ROOMS_BUTTON'
 
                     roomNameDiv.className = "ROOM";
-                    roomNameDiv.innerHTML = `Room: `
+                    roomNameDiv.innerHTML = language.getTranslation('ROOM');
 
                     roomNumberDiv.className = 'ROOMS_NUMBERS';
                     roomNumberDiv.innerHTML = roomId;
