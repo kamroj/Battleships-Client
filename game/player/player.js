@@ -2,6 +2,9 @@ const communication = require('../communication-server-client');
 const buttons = require('../buttons-helper');
 const myBoards = require('../board/board-marks')
 
+var path = window.location.pathname;
+var currentPage = path.split("/").pop();
+
 /**
  * Load id from local storage (browser memory), and if it doesn't exist, generate it randomly
  */
@@ -35,7 +38,10 @@ function isMyTurn() {
     })
 }
 
-let interval = setInterval(isMyTurn, 3000);
+//let interval = setInterval(isMyTurn, 3000);
+if (currentPage === 'game.html') {
+    setInterval(isMyTurn, 3000);
+}
 
 module.exports = {
     id: () => {
