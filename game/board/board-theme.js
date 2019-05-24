@@ -1,7 +1,5 @@
 const theme = require('../theme-change-helper');
 
-console.log("Wczytanie js board theme")
-
 document.getElementById(`CHANGE_COLOR`).onclick = () => {
     changeTheme();
 }

@@ -52,7 +52,7 @@ function createRoomList() {
 };
 
 function loadRoomListeners() {
-    $('.ROOMS_BUTTON').click(function() {
+    $('.ROOMS_BUTTON').click(function () {
         const childWithRoomIdIndex = 1;
         let gameId = this.childNodes[childWithRoomIdIndex].innerHTML
         let body = `playerId=${player.id()}&roomId=${gameId}`;

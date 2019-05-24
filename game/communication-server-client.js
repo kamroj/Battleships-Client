@@ -24,13 +24,21 @@ function doGet2Params(urlEnd, param1, param2, result) {
 
 /**
  * Wrapper for http request - GET
- * @param {*} urlEnd - and of url address
+ * @param {*} urlEnd - end of url address
  * @param {*} result - data received from server
  */
 function doGetWithoutRequest(urlEnd, result) {
     $.get(`${URL}/${urlEnd}`, result)
 }
 
+/**
+ * Wrapper for http request - GET
+ * @param {String} urlEnd - end of url adress 
+ * @param {String} gameId - current game ID 
+ * @param {String} playerId - current player ID
+ * @param {String} language - current language shortcut
+ * @param {JSON} result - data received from server
+ */
 function doGetChat(urlEnd, gameId, playerId, language, result) {
     $.get(`${URL}/${urlEnd}/${gameId}/${playerId}/${language}`, result)
 }

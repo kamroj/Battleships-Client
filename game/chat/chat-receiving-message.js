@@ -4,6 +4,10 @@ const player = require('../player/player');
 
 let chatBoxDiv = document.getElementById('chat_box');
 
+/**
+ * Each second refresh chat and update inner text of div with id #chatBoxDiv.
+ * If most recent message from server is [SERVER]: ~~~ then finish game.
+ */
 function refreshChat() {
     communication.getChatRequest('chat', localStorage.getItem('gameId'), localStorage.getItem('id'), localStorage.getItem("currentLanguage"), messages => {
         chatBoxDiv.innerText = '';
