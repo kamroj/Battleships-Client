@@ -28,6 +28,7 @@ function epilepticInfo() {
         message: `${language.getTranslation('EPILEPSY_INFO')}`
     };
 
+    epilepticInfoCounter++;
     if (epilepticInfoCounter === 5) {
         dialog.showMessageBox(null, options);
         epilepticInfoCounter = 0;
