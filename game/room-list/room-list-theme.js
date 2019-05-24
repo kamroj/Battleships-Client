@@ -1,24 +1,31 @@
-//importCHANGE_LANGUAGEs
-const $ = require('jQuery');
-
-let isDarkTheme = true;
+const theme = require('../theme-change-helper');
 
 document.getElementById(`CHANGE_COLOR`).onclick = () => {
     changeTheme();
 }
 
 function changeTheme() {
-    isDarkTheme ? loadLightThemeSettings() : loadDarkThemeSettings();
+    if (theme.isDark()) {
+        loadLightThemeSettings()
+    } else {
+        loadDarkThemeSettings()
+    }
 }
 
 function loadLightThemeSettings() {
-    console.log("Load light theme!");
-    $('#room-list-style').attr("href", "room-list-style-light.css");
-    isDarkTheme = false;
+    theme.toggleCss("room-list-style", "room-list-style-light.css", false);
 }
 
 function loadDarkThemeSettings() {
-    console.log("Load dark theme!");
-    $('#room-list-style').attr("href", "room-list-style.css");
-    isDarkTheme = true;
+    theme.toggleCss("room-list-style", "room-list-style.css", true);
 }
+
+function loadLightThemeSettingsWithoutTogging() {
+    theme.loadCss("room-list-style", "room-list-style-light.css");
+}
+
+function loadDarkThemeSettingsWithoutTogging() {
+    theme.loadCss("room-list-style", "room-list-style.css");
+}
+
+theme.isDark() ? loadDarkThemeSettingsWithoutTogging() : loadLightThemeSettingsWithoutTogging();
