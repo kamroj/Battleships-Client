@@ -1,4 +1,3 @@
-//imports
 const $ = require('jQuery');
 
 const fieldsQuantity = 100;
@@ -43,6 +42,7 @@ function createPassiveBoard(fieldsQuantity) {
         let button = document.createElement("button");
         let buttonDiv = document.getElementById("sub_div_passive_board");
 
+        button.innerHTML = " ";
         button.id = i;
         button.className = `fieldsPassive`;
         button.type = `enabled`;
@@ -57,7 +57,7 @@ function createPassiveBoard(fieldsQuantity) {
  * Function also manages visual of selecting buttons.
  */
 function reloadListenerToButtons() {
-    $('.fields').click(function () {
+    $('.fields').click(function() {
         chosenFieldToFire = this.innerHTML;
         $(this).prop('type', 'selected')
         $('.fields')
@@ -65,7 +65,7 @@ function reloadListenerToButtons() {
             .prop('type', 'enabled');
     });
 
-    $('.fieldsPassive').click(function () {
+    $('.fieldsPassive').click(function() {
         chosenFieldToPlaceShip = this.id;
         $(this).prop('type', 'selected');
         $('.fieldsPassive')
@@ -76,11 +76,12 @@ function reloadListenerToButtons() {
 
 module.exports = {
     chosenFieldToFire: () => {
-        return Number(chosenFieldToFire) -1
+        let number = Number(chosenFieldToFire) - 1;
+        chosenFieldToFire = -1;
+        return number
     },
 
     chosenFieldToPlaceShip: () => {
         return Number(chosenFieldToPlaceShip)
     }
 }
-

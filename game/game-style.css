@@ -1,118 +1,152 @@
-body
-{
+body {
     height: 100vh;
     background: #151519;
+    transition: 2s;
 }
 
-#main_div
-{
-    float: left;
+#main_div {
     height: 100%;
     width: 100%;
+}
+
+#upper_div_options {
     display: flex;
-    justify-content: center;
+    height: 20%;
+    color: white;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+#game_div {
+    height: 80%;
+    display: flex;
+    justify-content: space-around;
     align-items: center;
-    text-align: center;
 }
 
 #sub_div_active_board,
-#sub_div_passive_board
-{
-    flex: 0 0 auto;
-    height: 650px;
-    width: 650px;
+#sub_div_passive_board {
+    height: 80%;
+    width: 35%;
+    text-align: center;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
-#sub_div_action_buttons
-{
-    flex: 0 0 auto;
-    height: 650px;
-    width: 300px;
+#chat_div {
+    height: 80%;
+    width: 30%;
+    border: 2px solid rgba(65, 39, 136, 0.747);
 }
 
-#sub_div_action_buttons_splited
-{
+#chat_box {
+    color: white;
+    transition: 2s;
+    font-size: 2vh;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    display: flex;
+    height: 90%;
+    overflow: auto;
+}
+
+[type="chat_active"] {
+    height: 5%;
+    margin: 0%;
+    width: 100%;
+}
+
+input[type=text] {
+    width: 100%;
+    height: 5%;
+    box-sizing: border-box;
+}
+
+#sub_div_action_buttons {
+    flex: 0 0 auto;
+    min-height: 350px;
+    min-width: 300px;
+}
+
+#sub_div_action_buttons_splited {
     clear: both;
     height: 45%;
     width: 100px;
 }
 
+#ship_div,
+#action_buttons_div {
+    height: 50%;
+    width: 30%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    margin: 0% 2%;
+}
+
+#ship_div>button,
+#action_buttons_div>button {
+    height: 50%;
+    width: 30%;
+    margin: 1%;
+}
+
 button,
-[type="enabled"]
-{
-    outline: none;
-    top: 50%;
-    left: 50%;
-    background:  rgba(54, 54, 65, 0.933);
+[type="enabled"] {
+    background: rgba(54, 54, 65, 0.933);
     color: rgb(255, 255, 255);
-    width: 60px;
-    height: 60px;
+    width: 9%;
+    height: 9%;
     border: 3px solid #3c4775;
-    font-size: 15px;
-    transition: .6s;
+    font-size: 100%;
+    transition: 2s;
     margin-bottom: 2px;
     margin-left: 2px;
     overflow: hidden;
+    text-align: center;
 }
 
-
-[type="selected"]
-{
+[type="selected"] {
     border: 3px solid rgba(10, 165, 5, 0.933);
 }
 
-[type="board_buttons"]
-{
+[type="board_buttons"] {
     width: 10vw;
 }
 
-[type="ship_placed"]
-{
+[type="ship_placed"] {
     border: 3px solid rgba(170, 185, 83, 0.933);
     background-color: rgba(251, 255, 224, 0.933);
     color: rgb(10, 10, 10);
 }
 
-[type="fire_hit"]
-{
+[type="fire_hit"] {
     border: 3px solid rgba(10, 165, 5, 0.933);
     color: green;
     background-color: rgb(224, 243, 213);
-
 }
 
-[type="fire_miss"]
-{
-    border: 2px solid rgba(150, 9, 4, 0.933);
+[type="fire_miss"] {
+    border: 3px solid rgba(150, 9, 4, 0.933);
     color: red;
     background-color: rgb(248, 221, 225);
     opacity: 0.6;
 }
 
-[type="vertical_button_checked"]
-{
+[type="vertical_button_checked"] {
     border: 3px solid rgba(38, 150, 4, 0.933);
     background-color: rgb(17, 99, 21);
     color: rgb(255, 250, 250);
     width: 10vw;
 }
 
-button:hover:enabled
-{
-    background: #003d99;    
+button:hover:enabled {
+    background: #003d99;
     cursor: pointer;
-}
-
-button:hover::before:enabled
-{
-    transform: translateX(300px) skewX(-15deg);
-    opacity: 0.6;
-    transition: .7s;
-}
-
-button:hover::after:enabled
-{
-    transform: translateX(300px) skewX(-15deg);
-    opacity: .6s;
-    transition: .7s;
 }

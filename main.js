@@ -16,8 +16,9 @@ function createWindow() {
     }
   });
 
+  mainWindow.maximize();
   mainWindow.loadFile("game/room-list/room-list.html");
-  mainWindow.webContents.openDevTools();
+  //mainWindow.webContents.openDevTools();
 
   /**
    * Event emited when window is closed.

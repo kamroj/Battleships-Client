@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <title>BattleShips</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link id="room-list-style" rel="stylesheet" href="room-list-style.css" />
-  </head>
+</head>
 
-  <body>
+<body>
     <div id="main_div">
         <div id="sub_div_buttons_in_row">
             <button type="menu_enabled" id="MENU_PLAY_VERSUS_AI">Zagraj przeciwko komputerowi</button>
             <button type="menu_enabled" id="MENU_NEW_GAME">Nowa gra</button>
-            <button type="menu_enabled" id="MENU_CHANGE_COLOR">Zmień kolor</button>
+            <button type="menu_enabled" id="CHANGE_COLOR">Zmień kolor</button>
+            <button type="menu_enabled" id="CHANGE_LANGUAGE">Zmień język</button>
             <button type="menu_enabled" id="MENU_REFRESH">Odśwież</button>
         </div>
-        <div id="sub_div_buttons_column">
-        </div>
+        <div id="sub_div_buttons_column"></div>
     </div>
 
     <script>
-      // You can also require other files to run in this process
-      require("../../renderer.js");
-      require("./room-list")
-      require("./room-creation")
-      require("./room-refresh")
-      require("./room-list-theme")
-
+        // You can also require other files to run in this process
+        require("../../renderer.js");
+        require("./room-list")
+        require("./room-creation")
+        require("./room-list-theme")
+        require("../board/play-against-ai")
+        require("../../languages/language-menager")
     </script>
-  </body>
+</body>
+
 </html>

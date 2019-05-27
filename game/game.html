@@ -1,52 +1,65 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <title>BattleShips</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link id="game-style" rel="stylesheet" href="game-style.css" />
-  </head>
+</head>
 
-  <body>
-    <!-- <div class="main_div"> -->
+<body>
     <div id="main_div">
-      <div id="sub_div_active_board"></div>
-      <div id="sub_div_passive_board"></div>
-      <div id="sub_div_action_buttons">
-          <div id="sub_div_action_buttons_splited">
-            <button type="board_buttons" class="board_action_buttons" id="SHOT">Strzel</button>
-            <button type="board_buttons" class="board_settings_buttons" id="PLACE_SHIP">Postaw statek</button>
-            <button type="board_buttons" class="board_settings_buttons" id="CHANGE_COLOR">Zmień kolor planszy</button>
-            <button type="board_buttons" class="board_settings_buttons" id="CHANGE_LANGUAGE">Zmień język</button>
-          </div>
-          <div id="sub_div_action_buttons_splited">
-            <button type="board_buttons" id="SHIP_4_MAST">4 masztowy</button>
-            <button type="board_buttons" id="SHIP_3_MAST">3 masztowy</button>
-            <button type="board_buttons" id="SHIP_2_MAST">2 masztowy</button>
-            <button type="board_buttons" id="SHIP_1_MAST">1 masztowy</button>
-            <button type="board_buttons" id="TOGGLE_VERTICAL">Horyzontalnie</button>
-          </div>
-      </div>
+        <div id="upper_div_options">
+            <div id="ship_div">
+                <button type="board_buttons" class="board_settings_buttons" id="PLACE_SHIP">Postaw statek</button>
+                <button type="board_buttons" id="SHIP_1_MAST">1 masztowy</button>
+                <button type="board_buttons" id="SHIP_2_MAST">2 masztowy</button>
+                <button type="board_buttons" id="SHIP_3_MAST">3 masztowy</button>
+                <button type="board_buttons" id="SHIP_4_MAST">4 masztowy</button>
+                <button type="board_buttons" id="TOGGLE_VERTICAL">Horyzontalnie</button>
+            </div>
+            <div id="action_buttons_div">
+                <button type="board_buttons" class="board_action_buttons" id="SHOT">Strzel</button>
+                <button type="board_buttons" class="board_action_buttons" id="GENERATE_SHIPS">Generuj statki</button>
+                <button type="board_buttons" class="board_settings_buttons" id="CHANGE_COLOR">Zmień kolor planszy</button>
+                <button type="board_buttons" class="board_settings_buttons" id="CHANGE_LANGUAGE">Zmień język</button>
+            </div>
+        </div>
+        <div id="game_div">
+            <div id="sub_div_active_board"></div>
+            <div id="sub_div_passive_board"></div>
+            <div id="chat_div">
+                <div id="chat_box"></div>
+                <input id="textbox" type="text" placeholder="Write sth..."><br>
+                <button id="SEND_MESSAGE" type="chat_active">Wyślij wiadomość</button>
+            </div>
+        </div>
+
     </div>
 
     <!-- </div> -->
 
     <script>
-      // You can also require other files to run in this process
-      require("../renderer.js");
+        // You can also require other files to run in this process
+        require("../renderer.js");
 
-      require("../languages/language-menager");
-      
-      require("./board/board-fields");
-      require("./board/board-marks")
-      require("./board/board-action-buttons")
-      require("./board/board-theme")
-      
-      require("./ship/ship-class");
-      require("./ship/ship-action-buttons")
+        require("../languages/language-menager");
 
-      require("./player/player")
+        require("./board/board-fields");
+        require("./board/board-marks")
+        require("./board/board-action-buttons")
+        require("./board/board-theme")
+
+        require("./chat/chat-sending-message");
+        require("./chat/chat-receiving-message");
+
+        require("./ship/ship-class");
+        require("./ship/ship-action-buttons")
+
+        require("./player/player")
     </script>
-  </body>
+</body>
+
 </html>

@@ -1,31 +1,50 @@
 const communication = require('../game/communication-server-client');
 const $ = require('jQuery');
 
-let avaibleLanguagesMap; //Will be used in Sprint 4
-let languageMap;
-
-let currentLanguage = `en`;
+if (localStorage.getItem("currentLanguage") === null) {
+    localStorage.setItem("currentLanguage", `en`);
+}
 
 document.getElementById(`CHANGE_LANGUAGE`).onclick = () => {
-    currentLanguage = currentLanguage === `en` ? `pl` : `en`;
-    setLanguage(currentLanguage);
+    if (localStorage.getItem("currentLanguage") === `en`)
+        localStorage.setItem("currentLanguage", `pl`)
+    else
+        localStorage.setItem("currentLanguage", `en`)
+    setLanguage(localStorage.getItem("currentLanguage"));
 }
 
-function getAvaibleLanguages() {
-    communication.get(`language`, "", result => {
-        avaibleLanguagesMap = result;
-    })
-}
-
+/**
+ * Changes dynamically innerhtml in elements with IDs and Classes 
+ * that are equals to keys received from server.
+ * 
+ * @param {String} language - current language
+ */
 function setLanguage(language) {
     communication.get(`language`, language, result => {
         for (var key in result) {
             $(`#${key}`).html(`${result[key]}`);
+            $(`.${key}`).html(`${result[key]}`);
         }
+        //zapisanie języków do pamięci
+        localStorage.setItem("currentLanguageMap", JSON.stringify(result));
     })
 }
 
 $(document).ready(() => {
-        getAvaibleLanguages();
-        setLanguage(currentLanguage);
+    setLanguage(localStorage.getItem("currentLanguage"));
 });
+
+function getTranslation(key) {
+    let languageMap = JSON.parse(localStorage.getItem("currentLanguageMap"));
+    for (var k in languageMap) {
+        if (k === key)
+            return languageMap[key];
+    }
+    return 'KEY_NOT_FOUND'
+}
+
+module.exports = {
+    getTranslation: (key => {
+        return getTranslation(key);
+    })
+}
