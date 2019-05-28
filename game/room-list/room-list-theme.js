@@ -1,4 +1,6 @@
 const theme = require('../theme-change-helper');
+const fileFor = require('../keys')
+
 
 document.getElementById(`CHANGE_COLOR`).onclick = () => {
     changeTheme();
@@ -13,19 +15,19 @@ function changeTheme() {
 }
 
 function loadLightThemeSettings() {
-    theme.toggleCss("room-list-style", "room-list-style-light.css", false);
+    theme.toggleCss("room-list-style", fileFor.lightThemeRoomList, false);
 }
 
 function loadDarkThemeSettings() {
-    theme.toggleCss("room-list-style", "room-list-style.css", true);
+    theme.toggleCss("room-list-style", fileFor.darkThemeRoomList, true);
 }
 
 function loadLightThemeSettingsWithoutTogging() {
-    theme.loadCss("room-list-style", "room-list-style-light.css");
+    theme.loadCss("room-list-style", fileFor.lightThemeRoomList);
 }
 
 function loadDarkThemeSettingsWithoutTogging() {
-    theme.loadCss("room-list-style", "room-list-style.css");
+    theme.loadCss("room-list-style", fileFor.darkThemeRoomList);
 }
 
 theme.isDark() ? loadDarkThemeSettingsWithoutTogging() : loadLightThemeSettingsWithoutTogging();

@@ -1,4 +1,5 @@
 const theme = require('../theme-change-helper');
+const fileFor = require('../keys')
 
 document.getElementById(`CHANGE_COLOR`).onclick = () => {
     changeTheme();
@@ -13,19 +14,19 @@ function changeTheme() {
 }
 
 function loadLightThemeSettings() {
-    theme.toggleCss("game-style", "game-style-light.css", false);
+    theme.toggleCss("game-style", fileFor.lightThemeGame, false);
 }
 
 function loadDarkThemeSettings() {
-    theme.toggleCss("game-style", "game-style.css", true);
+    theme.toggleCss("game-style", fileFor.darkThemeGame, true);
 }
 
 function loadLightThemeSettingsWithoutTogging() {
-    theme.loadCss("game-style", "game-style-light.css");
+    theme.loadCss("game-style", fileFor.lightThemeGame);
 }
 
 function loadDarkThemeSettingsWithoutTogging() {
-    theme.loadCss("game-style", "game-style.css");
+    theme.loadCss("game-style", fileFor.darkThemeGame);
 }
 
 theme.isDark() ? loadDarkThemeSettingsWithoutTogging() : loadLightThemeSettingsWithoutTogging();
