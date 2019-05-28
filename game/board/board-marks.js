@@ -1,4 +1,5 @@
 const $ = require('jQuery');
+const keyFor = require('../keys')
 
 /**
  * Marks fields according to ship type
@@ -19,15 +20,15 @@ function markShip(index, masts) {
  * @param isHit - mark field as hit/miss
  */
 function markFire(position, isHit) {
-    let index = Number(position) + 1000; //dodaje 1000 by uniknąć konfliktu ID obu plansz, pytasz pewnie czemu coś takiego jak Number() ? po prostu JS
+    let index = Number(position) + 1000; // add 1000 - Id offset between active and passive boards
     $('.fields').ready(function() {
         $(`#${index}`).attr("disabled", true);
 
         if (isHit) {
-            $(`#${index}`).prop('type', 'fire_hit');
+            $(`#${index}`).prop('type', keyFor.hit);
             $(`#${index}`).html(`O`);
         } else {
-            $(`#${index}`).prop('type', 'fire_miss');
+            $(`#${index}`).prop('type', keyFor.miss);
             $(`#${index}`).html(`X`);
         }
     });
@@ -42,25 +43,25 @@ function markOpponentShots(index, isHit) {
     $('.fieldsPassive').ready(function() {
         $(`#${index}`).attr("disabled", true);
         if (isHit) {
-            $(`#${index}`).prop('type', 'fire_hit');
+            $(`#${index}`).prop('type', keyFor.hit);
             $(`#${index}`).html(`O`);
         } else {
-            $(`#${index}`).prop('type', 'fire_miss');
+            $(`#${index}`).prop('type', keyFor.miss);
             $(`#${index}`).html(`X`);
         }
     });
 }
 
 module.exports = {
-    ship : ((position, masts) => {
+    ship: ((position, masts) => {
         markShip(position, masts);
     }),
 
-    fire : ((position, isHit) => {
+    fire: ((position, isHit) => {
         markFire(position, isHit);
     }),
 
-    markOpponent : ((position, isHit) => {
+    markOpponent: ((position, isHit) => {
         markOpponentShots(position, isHit);
     })
 }

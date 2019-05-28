@@ -1,4 +1,5 @@
 const $ = require('jQuery');
+const keyFor = require('../keys')
 
 const fieldsQuantity = 100;
 let chosenFieldToFire = 0;
@@ -22,7 +23,7 @@ $(document).ready(() => {
 function createActiveBoard(fieldsQuantity) {
     for (i = 0; i < fieldsQuantity; i++) {
         let button = document.createElement("button");
-        let buttonDiv = document.getElementById("sub_div_active_board");
+        let buttonDiv = document.getElementById(keyFor.activeBoard);
 
         button.innerHTML = i + 1;
         button.id = i + 1000; //dodaje 1000 by uniknąć konfliktu ID obu plansz
@@ -40,7 +41,7 @@ function createActiveBoard(fieldsQuantity) {
 function createPassiveBoard(fieldsQuantity) {
     for (i = 0; i < fieldsQuantity; i++) {
         let button = document.createElement("button");
-        let buttonDiv = document.getElementById("sub_div_passive_board");
+        let buttonDiv = document.getElementById(keyFor.passiveBoard);
 
         button.innerHTML = " ";
         button.id = i;
@@ -74,10 +75,10 @@ function reloadListenerToButtons() {
     });
 }
 
-function disableButtonsForPassiveBoard(){
-        $('.fieldsPassive')
-            .not("[type='ship_placed']")
-            .attr("disabled", true);
+function disableButtonsForPassiveBoard() {
+    $('.fieldsPassive')
+        .not("[type='ship_placed']")
+        .attr("disabled", true);
 }
 
 module.exports = {
