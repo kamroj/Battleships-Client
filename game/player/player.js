@@ -1,6 +1,7 @@
 const communication = require('../communication-server-client');
 const buttons = require('../buttons-helper');
 const myBoards = require('../board/board-marks')
+const keyFor = require('../keys')
 
 var path = window.location.pathname;
 var currentPage = path.split("/").pop();
@@ -8,14 +9,14 @@ var currentPage = path.split("/").pop();
 /**
  * Load id from local storage (browser memory), and if it doesn't exist, generate it randomly
  */
-var id = localStorage.getItem("id");
+var id = localStorage.getItem(keyFor.id);
 if (id == null) {
     generateRandomId();
 }
 
 function generateRandomId() {
     id = Math.floor(Math.random() * 100000000);
-    localStorage.setItem("id", id)
+    localStorage.setItem(keyFor.id, id)
 }
 
 var askedOnceForSummaryAfterStartingTurn = false;
@@ -25,7 +26,7 @@ var askedOnceForSummaryAfterStartingTurn = false;
  */
 function isMyTurn() {
     communication.get2Params(`turn`, id, localStorage.getItem("gameId"), result => {
-        if(result === '')
+        if (result === '')
             return;
         buttons.disable('board_action_buttons', !result);
         askForSummaryIfRequired(result);
@@ -37,7 +38,7 @@ function askForSummaryIfRequired(result) {
         communication.get("summary", id, result => {
             try {
                 result.shotResults.forEach(element => {
-                    myBoards.markOpponent(element.field, element.shotOutcome != "MISS")
+                    myBoards.markOpponent(element.field, element.shotOutcome != keyFor.missShotOutcome)
                 });
             } catch (err) {
                 console.log('No summary shots from opponent yet!');
