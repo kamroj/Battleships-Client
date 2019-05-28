@@ -74,6 +74,12 @@ function reloadListenerToButtons() {
     });
 }
 
+function disableButtonsForPassiveBoard(){
+        $('.fieldsPassive')
+            .not("[type='ship_placed']")
+            .attr("disabled", true);
+}
+
 module.exports = {
     chosenFieldToFire: () => {
         let number = Number(chosenFieldToFire) - 1;
@@ -83,5 +89,9 @@ module.exports = {
 
     chosenFieldToPlaceShip: () => {
         return Number(chosenFieldToPlaceShip)
+    },
+
+    disablePassiveBoard: () => {
+        disableButtonsForPassiveBoard();
     }
 }

@@ -67,6 +67,7 @@ function placeShip() {
 
 document.getElementById('GENERATE_SHIPS').onclick = () => {
     generateShips();
+    field.disablePassiveBoard();
 }
 
 function generateShips() {
