@@ -2,7 +2,7 @@ const $ = require('jQuery');
 const player = require('../player/player');
 const communication = require('../communication-server-client');
 const { remote } = require('electron')
-const language = require('../../languages/language-menager');
+const language = require('../../languages/language-manager');
 
 let roomsList;
 
@@ -52,7 +52,7 @@ function createRoomList() {
 };
 
 function loadRoomListeners() {
-    $('.ROOMS_BUTTON').click(function () {
+    $('.ROOMS_BUTTON').click(function() {
         const childWithRoomIdIndex = 1;
         let gameId = this.childNodes[childWithRoomIdIndex].innerHTML
         let body = `playerId=${player.id()}&roomId=${gameId}`;
