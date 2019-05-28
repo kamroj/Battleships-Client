@@ -2,7 +2,7 @@
   "name": "battleships",
   "version": "1.0.1",
   "description": "Simple battle ship game, where players can play online on server",
-  "main": "main.js",
+  "main": "./game/main.js",
   "scripts": {
     "start": "electron .",
     "dist:linux": "electron-builder --linux"

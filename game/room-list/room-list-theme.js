@@ -1,4 +1,4 @@
-const theme = require('../theme-change-helper');
+const theme = require('../helpers/theme-change-helper');
 
 document.getElementById(`CHANGE_COLOR`).onclick = () => {
     changeTheme();

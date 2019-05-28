@@ -1,6 +1,6 @@
 const $ = require('jQuery');
 const player = require('../player/player');
-const communication = require('../communication-server-client');
+const communication = require('../helpers/communication-server-client');
 
 let textbox;
 

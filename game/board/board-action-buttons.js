@@ -2,7 +2,7 @@
 const field = require('./board-fields');
 const c = require('../ship/ship-class');
 const mark = require('./board-marks');
-const communication = require('../communication-server-client');
+const communication = require('../helpers/communication-server-client');
 const player = require('../player/player');
 
 let ship = c.Ship();

@@ -17,7 +17,7 @@ function createWindow() {
   });
   mainWindow.maximize();
   mainWindow.loadFile("game/room-list/room-list.html");
-  //mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
   /**
    *Creating empty bar menu. 
@@ -56,10 +56,9 @@ app.on("activate", function() {
   if (mainWindow === null) createWindow();
 });
 
-// Enable live reload for Electron too
 /**
  * Enable live reload for Electron
  */
 require("electron-reload")(__dirname, {
-  electron: require(`${__dirname}/node_modules/electron`)
+  electron: require(`../node_modules/electron`)
 });

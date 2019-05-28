@@ -1,5 +1,5 @@
-const communication = require('../communication-server-client');
-const buttons = require('../buttons-helper');
+const communication = require('../helpers/communication-server-client');
+const buttons = require('../helpers/buttons-helper');
 const player = require('../player/player');
 
 let chatBoxDiv = document.getElementById('chat_box');

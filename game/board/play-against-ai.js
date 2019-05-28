@@ -1,4 +1,4 @@
-const communication = require('../communication-server-client');
+const communication = require('../helpers/communication-server-client');
 const player = require('../player/player');
 const { remote } = require('electron');
 

@@ -1,4 +1,4 @@
-const language = require('../languages/language-menager');
+const language = require('../../languages/language-menager');
 const { dialog } = require('electron').remote
 const $ = require('jQuery');
 

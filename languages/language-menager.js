@@ -1,4 +1,4 @@
-const communication = require('../game/communication-server-client');
+const communication = require('../game/helpers/communication-server-client');
 const $ = require('jQuery');
 
 if (localStorage.getItem("currentLanguage") === null) {
