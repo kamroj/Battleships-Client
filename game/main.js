@@ -4,27 +4,31 @@ const { app, BrowserWindow, Menu } = require("electron");
 let mainWindow;
 
 /**
-   * Create the browser window.
-   */
+ * Create the browser window.
+ */
 function createWindow() {
-  
   mainWindow = new BrowserWindow({
     minHeight: 800,
     minWidth: 1400,
     webPreferences: {
-      nodeIntegration: true,
+      nodeIntegration: true
     }
   });
+
+  if(mainWindow === null || mainWindow === undefined) {
+    throw new Error('Main window is null!')
+  }
+
   mainWindow.maximize();
   mainWindow.loadFile("game/room-list/room-list.html");
   mainWindow.webContents.openDevTools();
 
   /**
-   *Creating empty bar menu. 
+   *Creating empty bar menu.
    */
-  const menu = Menu.buildFromTemplate([])
-  
-  mainWindow.setMenu(menu)
+  const menu = Menu.buildFromTemplate([]);
+
+  mainWindow.setMenu(menu);
 
   /**
    * Event emited when window is closed.
@@ -53,7 +57,13 @@ app.on("window-all-closed", function() {
  * then create it.
  */
 app.on("activate", function() {
-  if (mainWindow === null) createWindow();
+  if (mainWindow === null) {
+    try {
+      createWindow();
+    } catch (err) {
+      console.error(err);
+    }
+  }
 });
 
 /**
